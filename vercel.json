@@ -1,0 +1,12 @@
+{
+  "env": {
+    "PRISMIC_API_TOKEN": "@next_example_cms_prismic_api_token",
+    "PRISMIC_REPOSITORY_NAME": "@next_example_cms_prismic_repository_name"
+  },
+  "build": {
+    "env": {
+      "PRISMIC_API_TOKEN": "@next_example_cms_prismic_api_token",
+      "PRISMIC_REPOSITORY_NAME": "@next_example_cms_prismic_repository_name"
+    }
+  }
+}
