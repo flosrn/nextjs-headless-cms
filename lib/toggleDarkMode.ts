@@ -2,7 +2,6 @@ export const toggleDarkMode = (switchValue: boolean) => {
   const theme = switchValue ? "dark" : "light";
   const currentTheme = document.querySelector("html").classList.value;
   document.querySelector("html").classList.replace(currentTheme, theme);
-  return;
 };
 
 // export const loadUserSystemPrefTheme = () => {
