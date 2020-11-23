@@ -1,6 +1,6 @@
-import Alert from "components/sections/blog/alert";
-import Footer from "components/sections/blog/footer";
-import Meta from "components/sections/blog/meta";
+import Alert from "components/sections/blog-page/alert";
+import Footer from "components/sections/blog-page/footer";
+import Meta from "components/sections/blog-page/meta";
 
 export default function Layout({ preview, children }) {
   return (

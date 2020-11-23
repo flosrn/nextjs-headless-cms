@@ -2,13 +2,17 @@ import React from "react";
 import Links from "components/ui/links";
 import Logo from "components/ui/logo";
 import HamburgerMenu from "components/ui/hamburger-menu";
+import Locales from "components/ui/locales";
+import SwitchButton from "components/ui/switch-button";
 
 interface HeaderProps {
   openHandler: () => void;
+  switchHandler: any;
+  switchValue: boolean;
   side: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ openHandler, side }) => {
+const Header: React.FC<HeaderProps> = ({ openHandler, switchValue, switchHandler, side }) => {
   return (
     <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
       <nav
@@ -24,6 +28,8 @@ const Header: React.FC<HeaderProps> = ({ openHandler, side }) => {
           </div>
         </div>
         <Links />
+        <Locales />
+        <SwitchButton switchValue={switchValue} switchHandler={switchHandler} />
       </nav>
     </div>
   );

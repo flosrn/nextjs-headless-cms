@@ -1,4 +1,4 @@
-import markdownStyles from "components/sections/blog/markdown-styles.module.css";
+import markdownStyles from "components/sections/blog-page/markdown-styles.module.css";
 
 export default function PostBody({ content }) {
   return (

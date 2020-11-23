@@ -1,8 +1,8 @@
 import React from "react";
-import Avatar from "components/sections/blog/avatar";
-import Date from "components/sections/blog/date";
-import CoverImage from "components/sections/blog/cover-image";
-import PostTitle from "components/sections/blog/post-title";
+import Avatar from "components/sections/blog-page/avatar";
+import Date from "components/sections/blog-page/date";
+import CoverImage from "components/sections/blog-page/cover-image";
+import PostTitle from "components/sections/blog-page/post-title";
 
 export default function PostHeader({ title, coverImage, date, author }) {
   return (

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 const list = [
   { url: "/", name: "Accueil" },
+  { url: "/design", name: "Design" },
   { url: "/animations", name: "Animations" },
   { url: "/blog", name: "Blog" },
 ];

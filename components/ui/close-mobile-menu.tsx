@@ -1,4 +1,5 @@
 import React from "react";
+import Locales from "components/ui/locales";
 
 interface CloseMobileMenuProps {
   openHandler: () => void;
@@ -6,7 +7,8 @@ interface CloseMobileMenuProps {
 
 const CloseMobileMenu: React.FC<CloseMobileMenuProps> = ({ openHandler }) => {
   return (
-    <div className="-mr-2">
+    <div className="-mr-2 flex items-center">
+      <Locales isMobile />
       <button
         type="button"
         className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"

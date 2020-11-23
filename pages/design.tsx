@@ -1,23 +1,22 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import { useI18n, I18nProps } from "next-rosetta";
-import LayoutPage from "components/ui/layout-page";
-import HeroSection from "components/sections/home-page/hero-section";
-
+import { I18nProps, useI18n } from "next-rosetta";
 import { MyLocale } from "i18n";
+import LayoutPage from "components/ui/layout-page";
+import HeroSection from "components/sections/design-page/hero-section";
+import DemoProductSection from "components/sections/design-page/demo-product-section";
 
-const HomePage: React.FC = () => {
+const DesignPage: React.FC = () => {
   const i18n = useI18n<MyLocale>();
   const { t } = i18n;
 
   return (
-    <LayoutPage side>
-      <HeroSection t={t("home.hero")} />
+    <LayoutPage>
+      <HeroSection t={t("design.hero")} />
+      <DemoProductSection />
     </LayoutPage>
   );
 };
-
-// Server-side code
 
 export const getStaticProps: GetStaticProps<I18nProps<MyLocale>> = async (context) => {
   const locale = context.locale || context.defaultLocale;
@@ -25,4 +24,4 @@ export const getStaticProps: GetStaticProps<I18nProps<MyLocale>> = async (contex
   return { props: { table } }; // Passed to `/pages/_app.tsx`
 };
 
-export default HomePage;
+export default DesignPage;

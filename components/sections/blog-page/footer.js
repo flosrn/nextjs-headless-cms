@@ -1,4 +1,4 @@
-import Container from "components/sections/blog/container";
+import Container from "components/sections/blog-page/container";
 import { EXAMPLE_PATH } from "lib/constants";
 
 export default function Footer() {

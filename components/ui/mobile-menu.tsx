@@ -4,6 +4,7 @@ import { Transition } from "@headlessui/react";
 import Logo from "components/ui/logo";
 import Links from "components/ui/links";
 import CloseMobileMenu from "components/ui/close-mobile-menu";
+import Locales from "components/ui/locales";
 
 interface MobileMenuProps {
   isOpen: boolean;

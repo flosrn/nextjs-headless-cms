@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Avatar from "components/sections/blog/avatar";
-import Date from "components/sections/blog/date";
-import CoverImage from "components/sections/blog/cover-image";
+import Avatar from "components/sections/blog-page/avatar";
+import Date from "components/sections/blog-page/date";
+import CoverImage from "components/sections/blog-page/cover-image";
 
 export default function HeroPost({ title, coverImage, date, excerpt, author, slug }) {
   return (

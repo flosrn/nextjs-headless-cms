@@ -21,6 +21,7 @@
 /.vscode
 *.pem
 .DS_Store
+gsap-bonus.tgz
 
 # local env files
 .env.local

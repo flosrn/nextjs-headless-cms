@@ -1,4 +1,4 @@
-import Container from "components/sections/blog/container";
+import Container from "components/sections/blog-page/container";
 import cn from "classnames";
 
 export default function Alert({ preview }) {

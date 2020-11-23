@@ -8,12 +8,13 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="fr">
-        <Head />
+      <Html lang="fr" className="light">
+        <Head>
+          <link rel="shortcut icon" href="/favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />
-          <script> </script>
         </body>
       </Html>
     );

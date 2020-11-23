@@ -2,21 +2,21 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        ...defaultTheme.colors,
         "accent-1": "#FAFAFA",
         "accent-2": "#EAEAEA",
         "accent-7": "#333",
+        tailwindcss: "rgb(6, 182, 212)",
+        gsap: "rgb(87, 168, 24)",
         success: "#0070f3",
         cyan: "#79FFE1",
-        green: {
-          DEFAULT: "rgb(87, 168, 24)",
-        },
       },
       spacing: {
         28: "7rem",
@@ -39,6 +39,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {},
+  },
   plugins: [],
 };

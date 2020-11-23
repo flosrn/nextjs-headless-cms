@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Header from "components/ui/header";
 import MobileMenu from "components/ui/mobile-menu";
+import { toggleDarkMode } from "lib/toggleDarkMode";
+import Polygon from "components/ui/polygon";
 
 export interface LayoutPageProps {
   side?: boolean;
@@ -9,29 +11,30 @@ export interface LayoutPageProps {
 }
 const LayoutPage: React.FC<LayoutPageProps> = ({ side, children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [switchValue, setSwitchValue] = useState(false);
+
+  const handleSwitch = () => {
+    toggleDarkMode(!switchValue);
+    setSwitchValue(!switchValue);
+  };
 
   return (
     <div>
-      <div className="relative bg-white overflow-hidden">
+      <div className="relative bg-white dark:bg-gray-900 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div
-            className={`relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 ${
+            className={`relative z-10 pb-8 bg-white dark:bg-gray-900 sm:pb-16 md:pb-20 ${
               side ? "lg:max-w-2xl" : ""
             } lg:w-full lg:pb-28 xl:pb-32`}
           >
-            <svg
-              className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-              fill="currentColor"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <polygon points="50,0 100,0 50,100 0,100" />
-            </svg>
+            {side && <Polygon isDarkMode={switchValue} />}
 
-            <Header openHandler={() => setIsOpen(!isOpen)} side={side} />
-
-            {/* Mobile menu, show/hide based on menu open state. */}
+            <Header
+              openHandler={() => setIsOpen(!isOpen)}
+              switchValue={switchValue}
+              switchHandler={handleSwitch}
+              side={side}
+            />
             <MobileMenu isOpen={isOpen} openHandler={() => setIsOpen(false)} />
 
             {children}
