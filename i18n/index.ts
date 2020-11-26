@@ -16,6 +16,12 @@ export interface IHero {
 
 export interface MyLocale {
   locale: string;
+  links: {
+    link1: string;
+    link2: string;
+    link3: string;
+    link4: string;
+  };
   home: {
     hero: IHero;
   };

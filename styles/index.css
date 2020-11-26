@@ -11,6 +11,58 @@
   @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
 }
 
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+#tagline {
+  background: linear-gradient( -45deg, #e73c7e, #23a6d5, #23d5ab, #618af9, #9061f9 );
+  background-size: 400% 400%;
+  color: #9061f9;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s ease infinite;
+}
+
+#tagline:hover {
+  cursor: url("/images/rockon.png"), auto;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.sponsors-progress {
+  background: linear-gradient( 90deg, #ffd33d, #ea4aaa 17%, #b34bff 34%, #01feff 51%, #ffd33d 68%, #ea4aaa 85%, #b34bff );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sponsors-progress-animation 2s linear infinite;
+  cursor: url("/images/rockon.png"), auto;
+}
+
+@keyframes sponsors-progress-animation {
+  0% {
+    background-position: 100%;
+  }
+
+  to {
+    background-position: 0;
+  }
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

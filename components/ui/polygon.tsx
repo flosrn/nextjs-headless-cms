@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "lib/themeContext";
 
-interface PolygonProps {
-  isDarkMode: boolean;
-}
-
-const Polygon: React.FC<PolygonProps> = ({ isDarkMode }) => {
+const Polygon: React.FC = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   return (
     <svg
       className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"

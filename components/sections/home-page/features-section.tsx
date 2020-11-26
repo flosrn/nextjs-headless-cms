@@ -3,7 +3,7 @@ import Reveal from "components/ui/effects/reveal";
 
 const FeatureSection: React.FC = () => {
   return (
-    <div className="py-64 py-12 bg-white">
+    <div className="my-64 py-12 bg-white rounded-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">

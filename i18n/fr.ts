@@ -1,7 +1,13 @@
-import { MyLocale } from "i18n/index";
+import { MyLocale } from ".";
 
 export const table: MyLocale = {
-  locale: "French",
+  locale: "Français",
+  links: {
+    link1: "Accueil",
+    link2: "Design",
+    link3: "Animations",
+    link4: "Blog",
+  },
   home: {
     hero: {
       title: {

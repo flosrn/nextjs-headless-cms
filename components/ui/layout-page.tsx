@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Header from "components/ui/header";
 import MobileMenu from "components/ui/mobile-menu";
-import { toggleDarkMode } from "lib/toggleDarkMode";
 import Polygon from "components/ui/polygon";
 
 export interface LayoutPageProps {
@@ -11,30 +10,19 @@ export interface LayoutPageProps {
 }
 const LayoutPage: React.FC<LayoutPageProps> = ({ side, children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [switchValue, setSwitchValue] = useState(false);
-
-  const handleSwitch = () => {
-    toggleDarkMode(!switchValue);
-    setSwitchValue(!switchValue);
-  };
 
   return (
     <div>
-      <div className="relative bg-white dark:bg-gray-900 overflow-hidden">
+      <div className="relative bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div
             className={`relative z-10 pb-8 bg-white dark:bg-gray-900 sm:pb-16 md:pb-20 ${
               side ? "lg:max-w-2xl" : ""
             } lg:w-full lg:pb-28 xl:pb-32`}
           >
-            {side && <Polygon isDarkMode={switchValue} />}
+            {side && <Polygon />}
 
-            <Header
-              openHandler={() => setIsOpen(!isOpen)}
-              switchValue={switchValue}
-              switchHandler={handleSwitch}
-              side={side}
-            />
+            <Header openHandler={() => setIsOpen(!isOpen)} side={side} />
             <MobileMenu isOpen={isOpen} openHandler={() => setIsOpen(false)} />
 
             {children}

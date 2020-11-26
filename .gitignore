@@ -20,8 +20,8 @@
 /.idea
 /.vscode
 *.pem
+*.tgz
 .DS_Store
-gsap-bonus.tgz
 
 # local env files
 .env.local

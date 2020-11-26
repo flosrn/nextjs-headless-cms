@@ -10,10 +10,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t }) => {
     <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
       <div className="text-center flex flex-col items-center">
         <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl md:w-1/2">
-          <span className="block">{t.title?.line1}</span>
+          <span className="block dark:text-white">{t.title?.line1}</span>
           <span className="block text-tailwindcss">{t.title?.line2}</span>
         </h1>
-        <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg  md:text-xl w-100 md:w-1/2">
+        <p className="mt-3 text-base text-gray-500 dark:text-white sm:mt-5 sm:text-lg  md:text-xl w-100 md:w-1/2">
           {t.subtile?.line1}
         </p>
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
