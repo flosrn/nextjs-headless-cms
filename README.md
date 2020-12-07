@@ -14,7 +14,7 @@ This repo provide a [demo](https://nextjs-template.flosrn.vercel.app) template w
 - 📴 Offline support
 - ✨ Cool animations with [GSAP](https://greensock.com/gsap/)
 - 👨‍💻 Ready to code (Typescript - eslint - prettier)
-_ 🤖 Robot.txt generator for Google bot crawler
+- 🤖 Robot.txt generator for Google bot crawler
 - 💯 [Good Google lighthouse score](https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https%3A%2F%2Fnextjs-template.flosrn.vercel.app)
 
 
