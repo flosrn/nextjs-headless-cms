@@ -16,9 +16,8 @@ export const table: MyLocale = {
       },
       subtitle: {
         line1:
-          "Ce projet a pour but d'offrir une architecture robuste pour commencer un nouveau projet avec le framework Next.js.",
-        line2:
-          "Il repose sur les librairies les plus en vogue du moment et implémente les meilleures pratiques en termes de design, de code et d'architecture.",
+          "This project provide a demo template with all best stuff for a production ready Next.js website with all best practices.",
+        line2: "It is based on the most popular librairies of the moment.",
       },
     },
   },
@@ -32,6 +31,18 @@ export const table: MyLocale = {
         line1:
           "Because Tailwind is so low-level, it never encourages you to design the same site twice. Even with the same color palette and sizing scale, it's easy to build the same component with a completely different look in the next project.",
         line2: "",
+      },
+    },
+  },
+  animations: {
+    hero: {
+      title: {
+        line1: "Animations with",
+        line2: "GSAP",
+      },
+      subtitle: {
+        line1: "GSAP is a bit like the swiss army knife of javascript animation ... only better.",
+        line2: "Here are some examples of use.",
       },
     },
   },

@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
 
   return (
-    <LayoutPage side>
+    <LayoutPage>
       <HeroSection t={t("home.hero")} />
     </LayoutPage>
   );

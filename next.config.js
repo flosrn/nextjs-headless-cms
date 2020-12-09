@@ -7,8 +7,8 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 module.exports = withBundleAnalyzer(
   withPWA({
     i18n: {
-      locales: ["fr", "en"],
-      defaultLocale: "fr",
+      locales: ["en", "fr"],
+      defaultLocale: "en",
     },
     images: {
       domains: ["tailwindui.com", "images.unsplash.com", "localhost"],

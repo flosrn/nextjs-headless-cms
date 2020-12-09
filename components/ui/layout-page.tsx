@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import Image from "next/image";
 import Header from "components/ui/header";
 import MobileMenu from "components/ui/mobile-menu";
 import Polygon from "components/ui/polygon";
+import GithubDarkmodeDesign from "components/ui/github-darkmode-design";
 
 export interface LayoutPageProps {
   side?: boolean;
@@ -22,21 +22,9 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ side, children }) => {
 
         <Header openHandler={() => setIsOpen(!isOpen)} side={side} />
         <MobileMenu isOpen={isOpen} openHandler={() => setIsOpen(false)} />
+        <GithubDarkmodeDesign />
 
         {children}
-
-        {/*{side && (*/}
-        {/*  <div className="h-56 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">*/}
-        {/*    <Image*/}
-        {/*      className="w-full h-56 sm:h-72 md:h-96 lg:w-full lg:h-full object-cover"*/}
-        {/*      src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"*/}
-        {/*      alt="cover"*/}
-        {/*      // width="669"*/}
-        {/*      // height="622"*/}
-        {/*      layout="fill"*/}
-        {/*    />*/}
-        {/*  </div>*/}
-        {/*)}*/}
       </div>
     </div>
   );

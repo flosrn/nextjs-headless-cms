@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { GetStaticProps, GetStaticPaths } from "next";
 import ErrorPage from "next/error";
 import Container from "components/sections/blog-page/container";
 import PostBody from "components/sections/blog-page/post-body";
@@ -10,10 +9,8 @@ import Header from "components/sections/blog-page/header";
 import PostHeader from "components/sections/blog-page/post-header";
 import SectionSeparator from "components/sections/blog-page/section-separator";
 import Layout from "components/sections/blog-page/layout";
-import { getAllPostsWithSlug, getPostAndMorePosts } from "lib/api";
 import PostTitle from "components/sections/blog-page/post-title";
 import { CMS_NAME } from "lib/constants";
-import markdownToHtml from "lib/markdownToHtml";
 import LayoutPage from "components/ui/layout-page";
 
 interface PostProps {

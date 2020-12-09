@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="fr" className="light">
+      <Html lang="en" data-color-mode="light" className="light">
         <Head>
           <link rel="shortcut icon" href="/favicon/favicon.ico" />
         </Head>

@@ -3,7 +3,6 @@ import Links from "components/ui/links";
 import Logo from "components/ui/logo";
 import HamburgerMenu from "components/ui/hamburger-menu";
 import Locales from "components/ui/locales";
-import SwitchButton from "components/ui/switch-button";
 
 interface HeaderProps {
   openHandler: () => void;
@@ -28,13 +27,6 @@ const Header: React.FC<HeaderProps> = ({ openHandler, side }) => {
         </div>
         <div className="flex">
           <Locales />
-          <div className="relative bg-white dark:bg-gray-900">
-            <div className="max-w-7xl mx-auto">
-              <div className="hidden md:flex items-center justify-center w-full max-w-xs mx-auto ml-8">
-                <SwitchButton />
-              </div>
-            </div>
-          </div>
         </div>
       </nav>
     </div>

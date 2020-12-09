@@ -9,12 +9,10 @@ import LayoutPage from "components/ui/layout-page";
 const FallbackPage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
   return (
-    <>
-      <LayoutPage>
-        <HeroSection t={t("home.hero")} />
-        <FeatureSection />
-      </LayoutPage>
-    </>
+    <LayoutPage>
+      <HeroSection t={t("home.hero")} />
+      <FeatureSection />
+    </LayoutPage>
   );
 };
 

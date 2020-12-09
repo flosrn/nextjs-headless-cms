@@ -28,4 +28,7 @@ export interface MyLocale {
   design: {
     hero: IHero;
   };
+  animations: {
+    hero: IHero;
+  };
 }

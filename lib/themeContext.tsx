@@ -12,6 +12,7 @@ export const ThemeProvider = ({ children }) => {
 
   const replaceHtmlClass = (newTheme) => {
     const currentTheme = document.querySelector("html").classList.value;
+    document.querySelector("html").setAttribute("data-color-mode", newTheme);
     document.querySelector("html").classList.replace(currentTheme, newTheme);
   };
 

@@ -35,4 +35,17 @@ export const table: MyLocale = {
       },
     },
   },
+  animations: {
+    hero: {
+      title: {
+        line1: "Les animations avec",
+        line2: "GSAP",
+      },
+      subtitle: {
+        line1:
+          "GSAP est un peu comme le couteau suisse de l'animation javascript... mais en mieux.",
+        line2: "Voici quelques exemples d'utilisation.",
+      },
+    },
+  },
 };
