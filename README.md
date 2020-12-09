@@ -7,7 +7,7 @@ This repo provide a [demo](https://nextjs-template.flosrn.vercel.app) template w
 - 🚀 Powered by [Next.js](https://nextjs.org/) v10.0.3
 - 🍃 Beautifull and lightweight design with [Tailwindcss v2](https://tailwindcss.com)
 - 🌐 Internationalization support (fr/en)
-- 🌙 Custom and efficient light/dark mode switcher
+- 🌙 Custom and efficient light/dark mode switcher inspired by github design
 - 🏞 Images optimizations
 - 🔺 Statics pages delivered by [Vercel CDN](https://vercel.com)
 - 📱 Progressive Web App (PWA)
