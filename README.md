@@ -10,12 +10,12 @@ This repo provide a [demo](https://nextjs-template.flosrn.vercel.app) template w
 - 🌙 Custom and efficient light/dark mode switcher inspired by github design
 - 🏞 Images optimizations
 - 🔺 Statics pages delivered by [Vercel CDN](https://vercel.com)
-- 📱 Progressive Web App (PWA)
-- 📴 Offline support
 - ✨ Cool animations with [GSAP](https://greensock.com/gsap/)
 - 👨‍💻 Ready to code (Typescript - eslint - prettier)
 - 🤖 Robot.txt generator for Google bot crawler
 - 💯 [Good Google lighthouse score](https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https%3A%2F%2Fnextjs-template.flosrn.vercel.app)
+- 📱 Progressive Web App (PWA)
+- 📴 Offline support
 
 
 
