@@ -13,7 +13,7 @@
 - ✨ Cool animations with [GSAP](https://greensock.com/gsap/)
 - 👨‍💻 Ready to code (Typescript - eslint - prettier)
 - 🤖 Robot.txt generator for Google bot crawler
-- 💯 [Good Google lighthouse score](https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https%3A%2F%2Fhttps://nextjs-headless-cms-starter-kit.flosrn.vercel.app)
+- 💯 [Good Google lighthouse score](https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https%3A%2F%2Fnextjs-headless-cms-starter-kit.flosrn.vercel.app)
 - 📱 Progressive Web App (PWA)
 - 📴 Offline support
 
