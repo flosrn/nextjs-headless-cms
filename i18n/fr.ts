@@ -11,8 +11,8 @@ export const table: MyLocale = {
   home: {
     hero: {
       title: {
-        line1: "Bienvenue sur mon",
-        line2: "Next.js template",
+        line1: "Bienvenue sur",
+        line2: "Next.js Headless CMS Starter Kit",
       },
       subtitle: {
         line1:

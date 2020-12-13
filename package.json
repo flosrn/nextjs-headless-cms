@@ -1,6 +1,6 @@
 {
-  "name": "nextjs-template",
-  "version": "1.0.0",
+  "name": "nextjs-headless-cms-starter-kit",
+  "version": "0.0.1",
   "scripts": {
     "dev": "next -p 3002",
     "build": "next build",
@@ -9,11 +9,15 @@
     "analyze": "cross-env ANALYZE=true yarn build"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
     "@headlessui/react": "^0.2.0",
     "@next/bundle-analyzer": "^10.0.3",
     "classnames": "^2.2.6",
-    "cross-env": "^7.0.2",
-    "date-fns": "^2.10.0",
+    "cross-env": "^7.0.3",
+    "date-fns": "^2.16.1",
     "gsap": "./gsap-bonus.tgz",
     "next": "^10.0.3",
     "next-pwa": "^3.1.5",

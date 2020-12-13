@@ -10,8 +10,7 @@ interface LinksProps {
 
 const Links: React.FC<LinksProps> = ({ isMobile }) => {
   const { pathname } = useRouter();
-  const i18n = useI18n<MyLocale>();
-  const { t } = i18n;
+  const { t } = useI18n<MyLocale>();
 
   const links = [
     { href: "/", label: t("links.link1") },

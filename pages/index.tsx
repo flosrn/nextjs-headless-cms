@@ -3,15 +3,18 @@ import { GetStaticProps } from "next";
 import { useI18n, I18nProps } from "next-rosetta";
 import LayoutPage from "components/ui/layout-page";
 import HeroSection from "components/sections/home-page/hero-section";
+import GithubSection from "components/sections/home-page/github-section";
 
 import { MyLocale } from "../i18n";
+import ToolsSection from "components/sections/home-page/tools-section";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
-
   return (
     <LayoutPage>
       <HeroSection t={t("home.hero")} />
+      <ToolsSection />
+      <GithubSection />
     </LayoutPage>
   );
 };

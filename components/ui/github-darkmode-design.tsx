@@ -2,7 +2,11 @@ import React, { useContext, useRef } from "react";
 import SwitchButton from "components/ui/switch-button";
 import { ThemeContext } from "lib/themeContext";
 
-const GithubDarkmodeDesign: React.FC = () => {
+interface GithubDarkmodeDesign {
+  isOpen: boolean;
+}
+
+const GithubDarkmodeDesign: React.FC<GithubDarkmodeDesign> = ({ isOpen }) => {
   const { isDarkMode, darkModeHandler } = useContext(ThemeContext);
   const myRef = useRef<HTMLDivElement>();
 
@@ -99,7 +103,7 @@ const GithubDarkmodeDesign: React.FC = () => {
             </g>
           </g>
         </svg>
-        <SwitchButton isDarkMode={isDarkMode} darkModeHandler={handleDarkMode} />
+        {!isOpen && <SwitchButton isDarkMode={isDarkMode} darkModeHandler={handleDarkMode} />}
       </div>
     </div>
   );

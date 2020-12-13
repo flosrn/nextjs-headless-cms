@@ -14,6 +14,7 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({ isDarkMode, darkModeHandler
         checked={isDarkMode}
         onChange={darkModeHandler}
         className="profile-color-modes-toggle js-promo-color-modes-toggle"
+        style={{ zIndex: 0 }}
       >
         {() => (
           <>
