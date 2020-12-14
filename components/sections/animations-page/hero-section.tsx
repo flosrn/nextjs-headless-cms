@@ -7,7 +7,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ t }) => {
   return (
-    <section className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-10">
+    <section className="mt-3 md:mt-5 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:px-8">
       <div className="text-center flex flex-col items-center">
         <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
           <span className="block dark:text-gray-100">{t.title?.line1}</span>

@@ -1,6 +1,6 @@
 {
-  "short_name": "nextjs-template",
-  "name": "Next.js template",
+  "short_name": "nextjs-headless-cms-starter-kit",
+  "name": "Next.js starter kit",
   "lang": "fr",
   "start_url": "/",
   "background_color": "#5046e5",

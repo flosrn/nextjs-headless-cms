@@ -137,7 +137,7 @@ const Footer: React.FC = () => {
             <div className="text-sm text-gray-600 font-semibold py-1">
               Copyright © 2020 Next.js Headless CMS Starter Kit by{" "}
               <a
-                href="https://www.creative-tim.com"
+                href="https://github.com/Flosrn"
                 className="text-gray-600 hover:text-gray-900"
                 target="_blank"
               >

@@ -14,7 +14,11 @@ const GithubSection: React.FC = () => {
             </div>
             <h3 className="text-3xl mb-2 font-semibold leading-normal text-white">Open Source</h3>
             <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-500">
-              <a href="https://tailwindcss.com/" className="text-gray-400" target="_blank">
+              <a
+                href="https://github.com/Flosrn/nextjs-headless-cms-starter-kit"
+                className="text-gray-400"
+                target="_blank"
+              >
                 Nextjs Headless CMS starter kit
               </a>{" "}
               is an open source project. You can give this version a try to feel the design and also
@@ -24,7 +28,7 @@ const GithubSection: React.FC = () => {
               Get it free on Github and please help me spread the news with a Star!
             </p>
             <a
-              href="https://github.com/creativetimofficial/tailwind-starter-kit"
+              href="https://github.com/Flosrn/nextjs-headless-cms-starter-kit"
               target="_blank"
               className="github-star mt-4 inline-block text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-gray-800 active:bg-gray-700 uppercase text-sm shadow hover:shadow-lg"
             >

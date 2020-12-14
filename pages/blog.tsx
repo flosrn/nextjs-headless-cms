@@ -14,12 +14,12 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ allPosts }) => {
   return (
     <LayoutPage>
-      <section className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+      <section className="mt-3 mb-56 md:mt-5 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-row flex-wrap mx-auto">
           {allPosts ? (
             allPosts.map((blog) => <Blog key={blog.slug} {...blog} />)
           ) : (
-            <div className="flex justify-center items-center w-full text-4xl text-white">
+            <div className="mt-10 text-center w-full text-4xl text-white">
               Page under construction...
             </div>
           )}
