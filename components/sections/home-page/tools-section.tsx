@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const ToolsSection: React.FC = () => {
   return (
@@ -53,10 +54,11 @@ const ToolsSection: React.FC = () => {
                 <div className="relative flex flex-col mt-4">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-gray-600 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                      <img
-                        src="https://github.com/Flosrn/Flosrn/blob/main/assets/nextjs-logo.png?raw=true"
-                        alt="Next.js logo"
-                      />
+                      {/*<img*/}
+                      {/*  src="https://github.com/Flosrn/Flosrn/blob/main/assets/nextjs-logo.png?raw=true"*/}
+                      {/*  alt="Next.js logo"*/}
+                      {/*/>*/}
+                      <Image src="/logo/nextjs-logo.png" alt="ddd" width={12} height={12} />
                     </div>
                     <h6 className="text-xl mb-1 font-semibold">Next.js</h6>
                     <p className="mb-4 text-gray-600">
