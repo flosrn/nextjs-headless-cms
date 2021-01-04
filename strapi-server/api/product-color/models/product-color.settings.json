@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_colors",
+  "info": {
+    "name": "Product color"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "color": {
+      "type": "string"
+    }
+  }
+}
