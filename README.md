@@ -1,4 +1,4 @@
-# Next.js Headless CMS Starter Kit 
+# Next.js Headless CMS - Starter Kit 
 
 [Next.js Headless CMS Starter Kit ](https://nextjs-headless-cms-starter-kit.flosrn.vercel.app) is free and Open Source. It provides a starter template with all best stuff for a production ready Next.js website with all best practices.
 
