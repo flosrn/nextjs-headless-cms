@@ -19,9 +19,10 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
+      "*": ["./*"],
       "components/*": ["./components/*"],
       "lib/*": ["./lib/*"],
-      "models/*": ["./models/*"],
+      "interfaces/*": ["./interfaces/*"],
       "hooks/*": ["./hooks/*"],
       "services/*": ["./services/*"],
       "context/*": ["./context/*"],

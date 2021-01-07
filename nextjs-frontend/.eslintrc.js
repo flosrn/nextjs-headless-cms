@@ -36,6 +36,7 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "react/no-unescaped-entities": "off",
+    "no-param-reassign": "off",
     "jsx-a11y/accessible-emoji": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
