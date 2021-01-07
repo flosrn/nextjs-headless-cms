@@ -20,11 +20,11 @@ async function fetchAPI(query, { variables } = {}) {
   return json.data;
 }
 
-export async function getPreviewPostBySlug(slug) {
+export async function getPreviewBlogBySlug(slug) {
   const data = await fetchAPI(
     `
-  query PostBySlug($where: JSON) {
-    posts(where: $where) {
+  query BlogBySlug($where: JSON) {
+    blogs(where: $where) {
       slug
     }
   }
@@ -37,25 +37,25 @@ export async function getPreviewPostBySlug(slug) {
       },
     }
   );
-  return data?.posts[0];
+  return data?.blogs[0];
 }
 
-export async function getAllPostsWithSlug() {
+export async function getAllBlogsWithSlug() {
   const data = await fetchAPI(`
     {
-      posts {
+      blogs {
         slug
       }
     }
   `);
-  return data?.posts;
+  return data?.blogs;
 }
 
-export async function getAllPostsForHome(preview) {
+export async function getAllBlogsForHome(preview) {
   const data = await fetchAPI(
     `
-    query Posts($where: JSON){
-      posts(sort: "date:desc", limit: 10, where: $where) {
+    query Blogs($where: JSON){
+      blogs(sort: "date:desc", limit: 10, where: $where) {
         title
         slug
         excerpt
@@ -80,14 +80,14 @@ export async function getAllPostsForHome(preview) {
       },
     }
   );
-  return data?.posts;
+  return data?.blogs;
 }
 
-export async function getPostAndMorePosts(slug, preview) {
+export async function getBlogAndMoreBlogs(slug, preview) {
   const data = await fetchAPI(
     `
-  query PostBySlug($where: JSON, $where_ne: JSON) {
-    posts(where: $where) {
+  query BlogBySlug($where: JSON, $where_ne: JSON) {
+    blogs(where: $where) {
       title
       slug
       content
@@ -105,7 +105,7 @@ export async function getPostAndMorePosts(slug, preview) {
         }
       }
     }
-    morePosts: posts(sort: "date:desc", limit: 2, where: $where_ne) {
+    moreBlogs: blogs(sort: "date:desc", limit: 2, where: $where_ne) {
       title
       slug
       excerpt

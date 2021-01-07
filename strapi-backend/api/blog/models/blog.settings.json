@@ -17,7 +17,7 @@
     "content": {
       "type": "richtext"
     },
-    "exerpt": {
+    "excerpt": {
       "type": "string"
     },
     "coverImage": {
@@ -46,8 +46,7 @@
       ]
     },
     "author": {
-      "model": "author",
-      "via": "blog"
+      "model": "author"
     }
   }
 }

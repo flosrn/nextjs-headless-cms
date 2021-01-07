@@ -26,7 +26,7 @@ const Links: React.FC<LinksProps> = ({ isMobile }) => {
       }`}
     >
       {links.map((link: { href: string; label: string }) => (
-        <Link href={link.href} key={link.label}>
+        <Link href={link.href} key={link.href}>
           <a
             className={`${
               isMobile

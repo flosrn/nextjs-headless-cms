@@ -592,49 +592,6 @@
               }
             }
           },
-          "blog": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "content": {
-                "type": "string"
-              },
-              "exerpt": {
-                "type": "string"
-              },
-              "coverImage": {
-                "type": "string"
-              },
-              "date": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "uid"
-              },
-              "status": {
-                "type": "string"
-              },
-              "author": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -644,9 +601,6 @@
       "NewAuthor": {
         "properties": {
           "name": {
-            "type": "string"
-          },
-          "blog": {
             "type": "string"
           },
           "published_at": {

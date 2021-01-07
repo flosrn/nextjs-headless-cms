@@ -23,10 +23,6 @@
       ],
       "plugin": "upload",
       "required": false
-    },
-    "blog": {
-      "via": "author",
-      "model": "blog"
     }
   }
 }

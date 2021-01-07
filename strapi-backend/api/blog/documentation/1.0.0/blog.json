@@ -528,7 +528,7 @@
           "content": {
             "type": "string"
           },
-          "exerpt": {
+          "excerpt": {
             "type": "string"
           },
           "coverImage": {
@@ -626,9 +626,6 @@
               "picture": {
                 "type": "string"
               },
-              "blog": {
-                "type": "string"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -654,7 +651,7 @@
           "content": {
             "type": "string"
           },
-          "exerpt": {
+          "excerpt": {
             "type": "string"
           },
           "date": {
