@@ -1,12 +1,12 @@
 {
   "env": {
     "STRAPI_PREVIEW_SECRET": "@strapi_preview_secret",
-    "NEXT_PUBLIC_STRAPI_API_URL": "@next_public_strapi_api_url"
+    "NEXT_PUBLIC_STRAPI_API_URL": "@next-public-strapi-api-url"
   },
   "build": {
     "env": {
       "STRAPI_PREVIEW_SECRET": "@strapi_preview_secret",
-      "NEXT_PUBLIC_STRAPI_API_URL": "@next_public_strapi_api_url"
+      "NEXT_PUBLIC_STRAPI_API_URL": "@next-public-strapi-api-url"
     }
   }
 }
