@@ -112,7 +112,9 @@ const options = {
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
     // signIn: async (user, account, profile) => { return Promise.resolve(true) },
-    // redirect: async (url, baseUrl) => { return Promise.resolve(baseUrl) },
+    redirect: async (url, baseUrl) => {
+      return url.startsWith(baseUrl) ? Promise.resolve(url) : Promise.resolve(baseUrl);
+    },
     // session: async (session, user) => { return Promise.resolve(session) },
     // jwt: async (token, user, account, profile, isNewUser) => { return Promise.resolve(token) }
     session: async (session: ISession, user: IUser) => {
@@ -130,6 +132,7 @@ const options = {
         );
 
         const data = await response.json();
+        console.log("data : ", data);
 
         token.jwt = data.jwt;
         token.id = data.user.id;
