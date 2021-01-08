@@ -1,12 +1,20 @@
 {
   "env": {
-    "STRAPI_PREVIEW_SECRET": "@strapi_preview_secret",
-    "NEXT_PUBLIC_STRAPI_API_URL": "@next-public-strapi-api-url"
+    "NEXTAUTH_URL": "@nextauth-url",
+    "NEXT_PUBLIC_API_URL": "@next-public-api-url",
+    "DATABASE_URL": "@database-url",
+    "GOOGLE_ID": "@google-id",
+    "GOOGLE_SECRET": "@google-secret",
+    "STRAPI_PREVIEW_SECRET": "@strapi_preview_secret"
   },
   "build": {
     "env": {
-      "STRAPI_PREVIEW_SECRET": "@strapi_preview_secret",
-      "NEXT_PUBLIC_STRAPI_API_URL": "@next-public-strapi-api-url"
+      "NEXTAUTH_URL": "@nextauth-url",
+      "NEXT_PUBLIC_API_URL": "@next-public-api-url",
+      "DATABASE_URL": "@database-url",
+      "GOOGLE_ID": "@google-id",
+      "GOOGLE_SECRET": "@google-secret",
+      "STRAPI_PREVIEW_SECRET": "@strapi_preview_secret"
     }
   }
 }

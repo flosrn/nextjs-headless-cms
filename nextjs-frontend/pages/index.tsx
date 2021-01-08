@@ -10,7 +10,6 @@ import { MyLocale } from "i18n";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
-  console.log("process.env.NEXT_PUBLIC_STRAPI_API_URL : ", process.env.NEXT_PUBLIC_STRAPI_API_URL);
   return (
     <LayoutPage>
       <HeroSection t={t("home.hero")} />

@@ -1,7 +1,7 @@
 module.exports = ({ env }) => ({
   host: env("HOST", "0.0.0.0"),
   port: env.int("PORT", 1337),
-  url: env("", "http://api.nextjs-headless-cms.tech"),
+  url: env("https://api.nextjs-headless-cms.tech"),
   cron: { enabled: false },
   admin: {
     autoOpen: false,

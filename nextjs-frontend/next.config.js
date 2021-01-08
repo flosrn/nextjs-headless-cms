@@ -14,7 +14,8 @@ module.exports = withBundleAnalyzer(
       domains: ["tailwindui.com", "images.unsplash.com", "localhost"],
     },
     pwa: {
-      disable: process.env.NODE_ENV === "development",
+      // disable: process.env.NODE_ENV === "development",
+      disable: true,
       dest: "public",
       swSrc: "service-worker.js",
     },
