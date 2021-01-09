@@ -1,9 +1,5 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
-// import IAccount from "interfaces/account";
-// import IToken from "interfaces/token";
-// import IUser from "interfaces/user";
-// import ISession from "interfaces/session";
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
@@ -39,7 +35,6 @@ const options = {
     Providers.Google({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      state: false,
     }),
     Providers.Twitter({
       clientId: process.env.TWITTER_ID,
@@ -52,15 +47,8 @@ const options = {
   // Notes:
   // * You must to install an appropriate node_module for your database
   // * The Email provider requires a database (OAuth providers do not)
-  // database: process.env.DATABASE_URL,
-  database: {
-    type: "mongodb",
-    uri: process.env.DATABASE_URL,
-    w: "majority",
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    retryWrites: true,
-  },
+  database: process.env.DATABASE_URL,
+
   // The secret should be set to a reasonably long random string.
   // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
   // a separate secret is defined explicitly for encrypting the JWT.
@@ -112,33 +100,33 @@ const options = {
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
     // signIn: async (user, account, profile) => { return Promise.resolve(true) },
-    // redirect: async (url, baseUrl) => {
-    //   return url.startsWith(baseUrl) ? Promise.resolve(url) : Promise.resolve(baseUrl);
-    // },
-    // // session: async (session, user) => { return Promise.resolve(session) },
-    // // jwt: async (token, user, account, profile, isNewUser) => { return Promise.resolve(token) }
-    // session: async (session: ISession, user: IUser) => {
-    //   session.jwt = user.jwt;
-    //   session.id = user.id;
-    //
-    //   return Promise.resolve(session);
-    // },
-    // jwt: async (token: IToken, user: IUser, account: IAccount) => {
-    //   const isSignIn = !!user;
-    //
-    //   if (isSignIn) {
-    //     const response = await fetch(
-    //       `${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account?.accessToken}`
-    //     );
-    //
-    //     const data = await response.json();
-    //
-    //     token.jwt = data.jwt;
-    //     token.id = data.user.id;
-    //   }
-    //
-    //   return Promise.resolve(token);
-    // },
+    // redirect: async (url, baseUrl) => { return Promise.resolve(baseUrl) },
+    session: async (session, user) => {
+      session.jwt = user.jwt;
+      session.id = user.id;
+
+      return Promise.resolve(session);
+    },
+    jwt: async (token, user, account) => {
+      // console.log("token: ", token);
+      // console.log("user: ", user);
+      // console.log("account: ", account);
+
+      const isSignIn = !!user;
+
+      if (isSignIn) {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account.accessToken}`
+        );
+
+        const data = await response.json();
+
+        token.jwt = data.jwt;
+        token.id = data.user.id;
+      }
+
+      return Promise.resolve(token);
+    },
   },
 
   // Events are useful for logging

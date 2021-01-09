@@ -1,1 +1,1 @@
-export const dashboardURL = "http://localhost:1337";
+export const dashboardURL = "https://api.nextjs-headless-cms.tech";

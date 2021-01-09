@@ -1,9 +1,10 @@
 {
   "name": "nextjs-headless-cms",
   "version": "0.0.1",
-  "author": "Flosrn <flosrn.dev@gmail.com>",
-  "repository": "https://github.com/Flosrn/nextjs-headless-cms",
+  "repository": "https://github.com/Flosrn/nextjs-headless-cms.git",
   "homepage": "https://nextjs-headless-cms.tech",
+  "author": "Flosrn <flosrn.dev@gmail.com>",
+  "license": "ISC",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -23,16 +24,14 @@
     "date-fns": "^2.16.1",
     "gsap": "./gsap-bonus.tgz",
     "mongodb": "^3.6.3",
-    "next": "^10.0.3",
-    "next-auth": "^3.2.0-canary.16",
-    "next-pwa": "^3.1.5",
+    "next": "^10.0.5",
+    "next-auth": "^3.1.0",
     "next-rosetta": "^1.1.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "reflect-metadata": "^0.1.13",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
-    "typeorm": "^0.3.0-alpha.24"
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
