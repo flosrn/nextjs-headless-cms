@@ -16,7 +16,7 @@ const GithubDarkmodeDesign: React.FC<GithubDarkmodeDesign> = ({ isOpen }) => {
   };
 
   return (
-    <div className="flex justify-center mt-10">
+    <div className="flex justify-center pt-10">
       <div
         ref={myRef}
         className="flex w-36 profile-color-modes js-promo-color-modes-banner-profile isInitialToggle"

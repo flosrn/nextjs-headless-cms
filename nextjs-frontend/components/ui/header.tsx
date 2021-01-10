@@ -2,9 +2,10 @@ import React from "react";
 import { signIn, signOut, useSession } from "next-auth/client";
 import Links from "components/ui/links";
 import Logo from "components/ui/logo";
-import HamburgerMenu from "components/ui/hamburger-menu";
+// import HamburgerMenu from "components/ui/hamburger-menu";
 import Locales from "components/ui/locales";
 import MenuButton from "components/ui/menu-button";
+import SidebarButton from "components/ui/sidebar-button";
 
 interface HeaderProps {
   openHandler: () => void;
@@ -13,13 +14,16 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ openHandler }) => {
   const [session, loading] = useSession();
   return (
-    <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
-      <nav className="relative flex items-center justify-between sm:h-10" aria-label="Global">
+    <div className="fixed z-50 bg-white dark:bg-gray-900 w-full border-b border-gray-600 top-0 py-5 px-5 sm:px-6 lg:px-8">
+      <nav className="flex items-center justify-between sm:h-10" aria-label="Global">
         <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
           <div className="flex items-center justify-between w-full md:w-auto">
-            <Logo />
+            <div className="hidden md:block">
+              <Logo />
+            </div>
             <Links />
-            <HamburgerMenu openHandler={openHandler} />
+            {/* <HamburgerMenu openHandler={openHandler} /> */}
+            <SidebarButton openHandler={openHandler} />
           </div>
         </div>
         <div className="flex">
