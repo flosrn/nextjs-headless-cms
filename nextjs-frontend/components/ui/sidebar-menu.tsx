@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "next-rosetta";
 import { MyLocale } from "i18n/index";
 import { isLinkActive } from "utils/constants";
+import { signOut } from "next-auth/client";
 
 interface Props {
   isOpen?: boolean;
@@ -137,7 +138,7 @@ const SidebarMenu: React.FC<Props> = ({ isOpen, alwaysOpen }) => {
                 );
               })}
             </li>
-            {/*<li className="my-px">*/}
+            {/* <li className="my-px"> */}
             {/*  <a*/}
             {/*    href="#"*/}
             {/*    className="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 hover:bg-gray-700"*/}
@@ -284,8 +285,12 @@ const SidebarMenu: React.FC<Props> = ({ isOpen, alwaysOpen }) => {
             </li>
             <li className="my-px">
               <a
-                href="#"
+                href="/api/auth/signout"
                 className="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 hover:bg-gray-700"
+                onClick={(e) => {
+                  e.preventDefault();
+                  signOut();
+                }}
               >
                 <span className="flex items-center justify-center text-lg text-red-400">
                   <svg
