@@ -7,6 +7,7 @@
 - 🚀 Powered by [Next.js](https://nextjs.org/) v10.0.3
 - 🍃 Beautifull and lightweight design with [Tailwindcss v2](https://tailwindcss.com)
 - 🌐 Internationalization support (fr/en)
+- 🔐 Securized authentication/register handled by [NextAuth.js](https://next-auth.js.org/)
 - 🌙 Custom and efficient light/dark mode switcher inspired by github darkmode design
 - 🏞 Images optimizations
 - 🔺 Statics pages delivered by [Vercel CDN](https://vercel.com)
@@ -18,15 +19,13 @@
 - 📴 Offline support
 
 
-
 **TODOS** 
 
-- SEO improvments
+- SEO metadata and Open Graph tags improvments
 - UI improvments
 - Animations improvments
-- Bundles sizes analyzer & custom metrics tracking
+- Bundles sizes analyzer
 - Headless real integration with the next-gen Node.js [Strapi CMS](https://strapi.io/)
 - E-commerce features with products page, filtering, serching with GraphQL queries
-- Authentication & registation implementation
 - Many more improvments in coming... stay tuned !
 
