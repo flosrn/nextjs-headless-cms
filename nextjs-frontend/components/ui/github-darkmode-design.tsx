@@ -3,7 +3,7 @@ import SwitchButton from "components/ui/switch-button";
 import { ThemeContext } from "lib/themeContext";
 
 interface GithubDarkmodeDesign {
-  isOpen: boolean;
+  isOpen?: boolean;
 }
 
 const GithubDarkmodeDesign: React.FC<GithubDarkmodeDesign> = ({ isOpen }) => {

@@ -14,7 +14,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ openHandler }) => {
   const [session, loading] = useSession();
   return (
-    <div className="fixed z-50 bg-white dark:bg-gray-900 w-full border-b border-gray-600 top-0 py-5 px-5 sm:px-6 lg:px-8">
+    <div className="fixed z-50 bg-white dark:bg-gray-900 w-full border-b border-gray-600 top-0 py-3 md:py-5 px-5 sm:px-6 lg:px-8">
       <nav className="flex items-center justify-between sm:h-10" aria-label="Global">
         <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
           <div className="flex items-center justify-between w-full md:w-auto">
@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ openHandler }) => {
                         </>
                       }
                       items={[
-                        { href: "/account-settings", label: "Account settings" },
+                        { href: "/account/profile", label: "Account settings" },
                         { href: "#", label: "Support" },
                         { href: "/auth-features", label: "New feature (soon)" },
                         { href: "#", label: "License" },

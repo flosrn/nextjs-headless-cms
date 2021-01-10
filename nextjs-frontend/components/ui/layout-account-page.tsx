@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Header from "components/ui/header";
-// import MobileMenu from "components/ui/mobile-menu";
 import Footer from "components/ui/footer";
 import SidebarMenu from "components/ui/sidebar-menu";
 import { stopVerticalScroll } from "lib/scroll";
 
-export interface LayoutPageProps {
+export interface Props {
   children: React.ReactNode;
+  isMobile: boolean;
 }
-const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
+const LayoutAccountPage: React.FC<Props> = ({ children, isMobile }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -19,13 +19,14 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
     <div>
       <div className="relative z-10 bg-white dark:bg-gray-900 lg:w-full mt-16 md:mt-20 overflow-x-hidden">
         <Header openHandler={() => setIsOpen(!isOpen)} />
-        {/* <MobileMenu isOpen={isOpen} openHandler={() => setIsOpen(false)} /> */}
-        <SidebarMenu isOpen={isOpen} openHandler={() => setIsOpen(false)} />
-        {children}
-        <Footer />
+        <SidebarMenu isOpen={!isMobile || isOpen} alwaysOpen={!isMobile} />
+        <div className={!isMobile ? "w-5/6 ml-80" : ""}>
+          {children}
+          <Footer />
+        </div>
       </div>
     </div>
   );
 };
 
-export default LayoutPage;
+export default LayoutAccountPage;

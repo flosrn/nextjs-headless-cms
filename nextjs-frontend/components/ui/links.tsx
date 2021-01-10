@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useI18n } from "next-rosetta";
 import { MyLocale } from "i18n";
+import { isLinkActive } from "utils/constants";
 
 interface LinksProps {
   isMobile?: boolean;
@@ -34,7 +35,7 @@ const Links: React.FC<LinksProps> = ({ isMobile }) => {
                   ? "block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-700 hover:text-gray-900 dark:hover:text-gray-900 hover:bg-gray-50"
                   : ""
               } font-medium text-gray-500 hover:text-gray-900 dark:text-white dark:hover:text-gray-400 ${
-                pathname === link.href || `/${pathname.split("[")[0].split("/")[1]}` === link.href
+                isLinkActive({ pathname, href: link.href })
                   ? "text-indigo-600 dark:text-pink-500 hover:text-indigo-500 dark:hover:text-pink-700"
                   : ""
               }`}

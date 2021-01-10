@@ -16,7 +16,7 @@ const MenuButton: React.FC<Props> = ({ image, headMenu, items, footerMenu }) => 
         <Menu>
           {({ open }) => (
             <>
-              <span className="rounded-md shadow-sm">
+              <span className="flex items-center rounded-md shadow-sm">
                 <Menu.Button
                   className={`${
                     image
