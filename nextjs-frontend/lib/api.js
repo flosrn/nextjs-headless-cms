@@ -61,12 +61,12 @@ export async function getAllBlogsForHome(preview) {
         excerpt
         date
         coverImage {
-          url
+          formats
         }
         author {
           name
           picture {
-            url
+            formats
           }
         }
       }
@@ -96,12 +96,12 @@ export async function getBlogAndMoreBlogs(slug, preview) {
         url
       }
       coverImage {
-        url
+        formats
       }
       author {
         name
         picture {
-          url
+          formats
         }
       }
     }
@@ -111,12 +111,12 @@ export async function getBlogAndMoreBlogs(slug, preview) {
       excerpt
       date
       coverImage {
-        url
+        formats
       }
       author {
         name
         picture {
-          url
+          formats
         }
       }
     }

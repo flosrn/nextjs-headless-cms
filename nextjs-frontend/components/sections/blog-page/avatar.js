@@ -1,13 +1,18 @@
+import React from "react";
+import Image from "next/image";
+import { dashboardURL } from "utils/constants";
+
 export default function Avatar({ name, picture }) {
-  const url = picture.url ?? picture[0].url;
   return (
     <div className="flex items-center">
-      <img
-        src={`${url.startsWith("/") ? process.env.NEXT_PUBLIC_API_URL : ""}${url}`}
-        className="w-12 h-12 rounded-full mr-4 grayscale"
-        alt={name}
+      <Image
+        src={`${dashboardURL}${picture?.formats.thumbnail.url}`}
+        width={50}
+        height={50}
+        alt={picture.caption}
+        className="object-cover w-12 h-12 rounded-full grayscale"
       />
-      <div className="text-xl font-bold">{name}</div>
+      <div className="text-xl font-bold ml-4">{name}</div>
     </div>
   );
 }

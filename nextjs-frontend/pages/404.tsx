@@ -16,7 +16,6 @@ const ErrorPage: React.FC = () => {
               The requested page could not be found.
             </span>
           </h1>
-
           <div className="">
             <Image src="/images/travolta.gif" width={490} height={476} />
           </div>

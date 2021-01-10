@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ openHandler }) => {
                       items={[
                         { href: "/account-settings", label: "Account settings" },
                         { href: "#", label: "Support" },
-                        { href: "#", label: "New feature (soon)" },
+                        { href: "/auth-features", label: "New feature (soon)" },
                         { href: "#", label: "License" },
                       ]}
                       footerMenu={{

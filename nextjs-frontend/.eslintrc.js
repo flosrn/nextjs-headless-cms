@@ -21,8 +21,8 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript",
     "prettier",
-    "prettier/@typescript-eslint",
     "prettier/react",
+    "prettier/@typescript-eslint",
   ],
   rules: {
     "react/react-in-jsx-scope": "off", // suppress errors for missing 'import React' in files
@@ -49,6 +49,7 @@ module.exports = {
         allowConciseArrowFunctionExpressionsStartingWithVoid: true,
       },
     ],
+    camelcase: "off",
   },
   settings: {
     "import/resolver": {

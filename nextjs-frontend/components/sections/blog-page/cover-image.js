@@ -1,18 +1,28 @@
 import Link from "next/link";
+import Image from "next/image";
+import { dashboardURL } from "utils/constants";
 
-export default function CoverImage({ title, url, slug }) {
-  const imageUrl = `${url.startsWith("/") ? process.env.NEXT_PUBLIC_API_URL : ""}${url}`;
-
+export default function CoverImage({ title, coverImage, slug }) {
   return (
-    <div className="sm:mx-0">
+    <div className="flex justify-center sm:mx-0">
       {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link href="/blog/[...slug]" as={`/blog/${slug}`}>
           <a aria-label={title}>
-            <img src={imageUrl} alt={title} />
+            <Image
+              src={`${dashboardURL}${coverImage?.formats.large.url}`}
+              width={coverImage?.formats.large.width}
+              height={coverImage?.formats.large.height}
+              alt={title}
+            />
           </a>
         </Link>
       ) : (
-        <img src={imageUrl} alt={title} />
+        <Image
+          src={`${dashboardURL}${coverImage?.formats.large.url}`}
+          width={coverImage?.formats.large.width}
+          height={coverImage?.formats.large.height}
+          alt={title}
+        />
       )}
     </div>
   );

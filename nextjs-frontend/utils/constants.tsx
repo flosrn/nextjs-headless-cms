@@ -1,1 +1,1 @@
-export const dashboardURL = "https://api.nextjs-headless-cms.tech";
+export const dashboardURL = process.env.NEXT_PUBLIC_API_URL;

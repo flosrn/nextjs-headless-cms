@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 
 interface Props {
@@ -60,16 +61,17 @@ const MenuButton: React.FC<Props> = ({ image, headMenu, items, footerMenu }) => 
 
                   <div className="py-1">
                     {items.map((item: { href: string; label: string }) => (
-                      <Menu.Item key={item.label} disabled>
+                      <Menu.Item key={item.label}>
                         {({ active }) => (
-                          <a
-                            href={item.href}
-                            className={`${
-                              active ? "bg-gray-100 text-gray-900" : "text-gray-700"
-                            } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
-                          >
-                            {item.label}
-                          </a>
+                          <Link href={item.href}>
+                            <a
+                              className={`${
+                                active ? "bg-gray-100 text-gray-900" : "text-gray-700"
+                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                            >
+                              {item.label}
+                            </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     ))}

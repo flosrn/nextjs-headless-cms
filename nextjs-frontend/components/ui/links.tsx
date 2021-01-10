@@ -25,23 +25,25 @@ const Links: React.FC<LinksProps> = ({ isMobile }) => {
         isMobile ? "px-2 pt-2 pb-3 space-y-1" : "hidden md:block md:ml-10 md:pr-4 md:space-x-8"
       }`}
     >
-      {links.map((link: { href: string; label: string }) => (
-        <Link href={link.href} key={link.href}>
-          <a
-            className={`${
-              isMobile
-                ? "block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-700 hover:text-gray-900 dark:hover:text-gray-900 hover:bg-gray-50"
-                : ""
-            } font-medium text-gray-500 hover:text-gray-900 dark:text-white dark:hover:text-gray-400 ${
-              pathname === link.href
-                ? "text-indigo-600 dark:text-pink-500 hover:text-indigo-500 dark:hover:text-pink-700"
-                : ""
-            }`}
-          >
-            {link.label}
-          </a>
-        </Link>
-      ))}
+      {links.map((link: { href: string; label: string }) => {
+        return (
+          <Link href={link.href} key={link.href}>
+            <a
+              className={`${
+                isMobile
+                  ? "block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-700 hover:text-gray-900 dark:hover:text-gray-900 hover:bg-gray-50"
+                  : ""
+              } font-medium text-gray-500 hover:text-gray-900 dark:text-white dark:hover:text-gray-400 ${
+                pathname === link.href || `/${pathname.split("[")[0].split("/")[1]}` === link.href
+                  ? "text-indigo-600 dark:text-pink-500 hover:text-indigo-500 dark:hover:text-pink-700"
+                  : ""
+              }`}
+            >
+              {link.label}
+            </a>
+          </Link>
+        );
+      })}
     </div>
   );
 };

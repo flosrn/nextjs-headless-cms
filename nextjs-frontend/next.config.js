@@ -9,7 +9,7 @@ module.exports = withBundleAnalyzer({
     defaultLocale: "en",
   },
   images: {
-    domains: ["tailwindui.com", "images.unsplash.com", "localhost"],
+    domains: ["api.nextjs-headless-cms.tech", "tailwindui.com", "images.unsplash.com", "localhost"],
   },
   // pwa: {
   //   // disable: process.env.NODE_ENV === "development",
