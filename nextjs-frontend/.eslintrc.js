@@ -39,6 +39,7 @@ module.exports = {
     "no-param-reassign": "off",
     "jsx-a11y/accessible-emoji": "off",
     "no-use-before-define": "off",
+    "prefer-promise-reject-errors": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/explicit-function-return-type": [

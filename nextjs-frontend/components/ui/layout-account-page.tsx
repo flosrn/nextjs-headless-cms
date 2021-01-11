@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "components/ui/header";
 import Footer from "components/ui/footer";
 import SidebarMenu from "components/ui/sidebar-menu";
-import { stopVerticalScroll } from "lib/scroll";
+import { stopVerticalScroll } from "utils/functions";
 
 export interface Props {
   children: React.ReactNode;

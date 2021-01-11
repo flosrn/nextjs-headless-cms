@@ -1,11 +1,39 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
+import axios from "axios";
+import { getProfilePic } from "../../../utils/functions";
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
 const options = {
   // https://next-auth.js.org/configuration/providers
   providers: [
+    Providers.Credentials({
+      name: "Credentials",
+      authorize: async (credentials) => {
+        try {
+          const response = await axios.post(
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/local/register`,
+            {
+              username: credentials.email.split("@")[0],
+              email: credentials.email,
+              password: credentials.password,
+            }
+          );
+          const user = {
+            jwt: response.data.jwt,
+            id: response.data.user.id,
+            name: response.data.user.email.split("@")[0],
+            email: response.data.user.email,
+            image: getProfilePic(response.data.user.email),
+          };
+          return Promise.resolve(user);
+        } catch (error) {
+          const errorMessage = error.response?.data.message[0].messages[0].id;
+          return Promise.reject(`/auth/signin?error=${errorMessage}`);
+        }
+      },
+    }),
     // Providers.Email({
     //   server: process.env.EMAIL_SERVER,
     //   from: process.env.EMAIL_FROM,
@@ -28,13 +56,13 @@ const options = {
     //   clientId: process.env.FACEBOOK_ID,
     //   clientSecret: process.env.FACEBOOK_SECRET,
     // }),
-    Providers.GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
     Providers.Google({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    Providers.GitHub({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
     // Providers.Twitter({
     //   clientId: process.env.TWITTER_ID,
@@ -90,7 +118,7 @@ const options = {
   pages: {
     signIn: "/auth/signin", // Displays signin buttons
     // signOut: '/api/auth/signout', // Displays form with sign out button
-    // error: '/api/auth/error', // Error code passed in query string as ?error=
+    // error: "/auth/signin?error=blabla", // Error code passed in query string as ?error=
     // verifyRequest: '/api/auth/verify-request', // Used for check email page
     // newUser: null // If set, new users will be directed here on first sign in
   },
@@ -102,31 +130,29 @@ const options = {
     // signIn: async (user, account, profile) => {
     //   return Promise.resolve(true);
     // },
-    // redirect: async (url, baseUrl) => { return Promise.resolve(baseUrl) },
+    redirect: async (url, baseUrl) => {
+      return Promise.resolve(baseUrl);
+    },
     session: async (session, user) => {
-      session.jwt = user.jwt;
-      session.id = user.id;
-
+      session.jwt = user?.jwt;
+      session.id = user?.id;
       return Promise.resolve(session);
     },
     jwt: async (token, user, account) => {
-      // console.log("token: ", token);
-      // console.log("user: ", user);
-      // console.log("account: ", account);
-
       const isSignIn = !!user;
 
-      if (isSignIn) {
-        const response = await fetch(
+      if (isSignIn && account.type !== "credentials") {
+        const response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account.accessToken}`
         );
-
-        const data = await response.json();
-
-        token.jwt = data.jwt;
-        token.id = data.user.id;
+        token.jwt = response.data.jwt;
+        token.id = response.data.user.id;
       }
 
+      if (isSignIn && account.type === "credentials") {
+        token.jwt = user.jwt;
+        token.id = user.id;
+      }
       return Promise.resolve(token);
     },
   },

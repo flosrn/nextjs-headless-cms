@@ -3,7 +3,7 @@ import Header from "components/ui/header";
 // import MobileMenu from "components/ui/mobile-menu";
 import Footer from "components/ui/footer";
 import SidebarMenu from "components/ui/sidebar-menu";
-import { stopVerticalScroll } from "lib/scroll";
+import { stopVerticalScroll } from "utils/functions";
 
 export interface LayoutPageProps {
   children: React.ReactNode;
