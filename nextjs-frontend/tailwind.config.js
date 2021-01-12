@@ -16,6 +16,9 @@ module.exports = {
         tailwindcss: "rgb(6, 182, 212)",
         gsap: "rgb(87, 168, 24)",
       },
+      zIndex: {
+        "-10": "-10",
+      },
     },
   },
   variants: {

@@ -1,10 +1,14 @@
-export const getProfilePic = (email: string) => {
+export function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function getProfilePic(email: string) {
   const substr = email.split("@")[0].split(/[.*+-/_]/);
   const name = substr[1] ? `${substr[0]}+${substr[1]}` : substr[0];
   return `https://eu.ui-avatars.com/api/?name=${name}&bold=true&rounded=true&background=60A5FA`;
-};
+}
 
-export const stopVerticalScroll = (isOpen: boolean) => {
+export function stopVerticalScroll(isOpen: boolean) {
   setTimeout(() => {
     if (isOpen) {
       document.querySelector("body").classList.remove("overflow-y-auto");
@@ -14,4 +18,4 @@ export const stopVerticalScroll = (isOpen: boolean) => {
       document.querySelector("body").classList.add("overflow-y-auto");
     }
   }, 500);
-};
+}

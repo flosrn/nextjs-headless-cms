@@ -1,7 +1,12 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import axios from "axios";
-import { getProfilePic } from "../../../utils/functions";
+import { getProfilePic } from "utils/functions";
+import IToken from "interfaces/token";
+import IUser from "interfaces/user";
+import IAccount from "interfaces/account";
+import ISession from "interfaces/session";
+import { authHandler } from "lib/api/authApi";
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
@@ -12,25 +17,28 @@ const options = {
       name: "Credentials",
       authorize: async (credentials) => {
         try {
-          const response = await axios.post(
-            `${process.env.NEXT_PUBLIC_API_URL}/auth/local/register`,
-            {
-              username: credentials.email.split("@")[0],
-              email: credentials.email,
-              password: credentials.password,
-            }
-          );
+          const response = await authHandler(credentials);
+          console.log("response.data : ", response.data);
           const user = {
             jwt: response.data.jwt,
             id: response.data.user.id,
-            name: response.data.user.email.split("@")[0],
+            name: response.data.username,
             email: response.data.user.email,
             image: getProfilePic(response.data.user.email),
+            isAllowedToSignIn: response.data.user.confirmed,
           };
-          return Promise.resolve(user);
+          if (user.isAllowedToSignIn) {
+            return Promise.resolve(user);
+          }
+          return Promise.reject("/api/auth/verify-request");
         } catch (error) {
-          const errorMessage = error.response?.data.message[0].messages[0].id;
-          return Promise.reject(`/auth/signin?error=${errorMessage}`);
+          const errorCode = error.response?.data.message[0].messages[0].id;
+          const errorMessage = error.response?.data.message[0].messages[0].message;
+          console.log("errorCode : ", errorCode);
+          console.log("errorMessage : ", errorMessage);
+          return Promise.reject(
+            `/auth/signin?form=${credentials.formType}&errorCode=${errorCode}&errorMessage=${errorMessage}`
+          );
         }
       },
     }),
@@ -116,10 +124,10 @@ const options = {
   // pages is not specified for that route.
   // https://next-auth.js.org/configuration/pages
   pages: {
-    signIn: "/auth/signin", // Displays signin buttons
+    signIn: "/auth/signin?form=signup", // Displays signin buttons
     // signOut: '/api/auth/signout', // Displays form with sign out button
-    // error: "/auth/signin?error=blabla", // Error code passed in query string as ?error=
-    // verifyRequest: '/api/auth/verify-request', // Used for check email page
+    // error: "/auth/signin?error=", // Error code passed in query string as ?error=
+    verifyRequest: "/auth/signin?form=verify-request", // Used for check email page
     // newUser: null // If set, new users will be directed here on first sign in
   },
 
@@ -130,15 +138,15 @@ const options = {
     // signIn: async (user, account, profile) => {
     //   return Promise.resolve(true);
     // },
-    redirect: async (url, baseUrl) => {
+    redirect: async (_url: string, baseUrl: string) => {
       return Promise.resolve(baseUrl);
     },
-    session: async (session, user) => {
+    session: async (session: ISession, user: IUser) => {
       session.jwt = user?.jwt;
       session.id = user?.id;
       return Promise.resolve(session);
     },
-    jwt: async (token, user, account) => {
+    jwt: async (token: IToken, user: IUser, account: IAccount) => {
       const isSignIn = !!user;
 
       if (isSignIn && account.type !== "credentials") {

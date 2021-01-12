@@ -13,7 +13,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ openHandler }) => {
   const [session, loading] = useSession();
-  console.log("session : ", session);
   return (
     <div className="fixed z-50 bg-white dark:bg-gray-900 w-full border-b border-gray-600 top-0 py-3 md:py-5 px-5 sm:px-6 lg:px-8">
       <nav className="flex items-center justify-between sm:h-10" aria-label="Global">
@@ -40,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ openHandler }) => {
                     signIn();
                   }}
                 >
-                  Sign in
+                  Sign up
                 </a>
               ) : (
                 <>
