@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 interface Props {
   type: string;
@@ -59,31 +60,42 @@ const Alert: React.FC<Props> = ({ type, title, content, closeHandler }) => {
   }, [type]);
 
   return (
-    <div className={`${color[100]} p-5 w-full mb-3 rounded-lg`}>
+    <motion.div
+      layout
+      initial={{ opacity: 0.6, y: 80, scale: 0.8 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { duration: 0.5 },
+      }}
+      exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+      onClick={closeHandler}
+      className={`${color?.[100]} p-5 w-full mb-3 rounded-lg`}
+    >
       <div className="flex justify-between">
         <div className="flex space-x-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className={`flex-none fill-current ${color[500]} h-4 w-4`}
+            className={`flex-none fill-current ${color?.[500]} h-4 w-4`}
           >
             {icon}
           </svg>
           <div className="leading-tight flex flex-col space-y-2">
-            <div className={`text-sm font-medium ${color[700]}`}>{title}</div>
-            <div className={`flex-1 leading-snug text-sm ${color[600]}`}>{content}</div>
+            <div className={`text-sm font-medium ${color?.[700]}`}>{title}</div>
+            <div className={`flex-1 leading-snug text-sm ${color?.[600]}`}>{content}</div>
           </div>
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          className={`flex-none fill-current ${color[600]} h-3 w-3 cursor-pointer`}
-          onClick={closeHandler}
+          className={`flex-none fill-current ${color?.[600]} h-3 w-3 cursor-pointer`}
         >
           <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
         </svg>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

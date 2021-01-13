@@ -7,8 +7,9 @@ import { stopVerticalScroll } from "utils/functions";
 
 export interface LayoutPageProps {
   children: React.ReactNode;
+  hideFooter?: boolean;
 }
-const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
+const LayoutPage: React.FC<LayoutPageProps> = ({ children, hideFooter }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
         {/* <MobileMenu isOpen={isOpen} openHandler={() => setIsOpen(false)} /> */}
         <SidebarMenu isOpen={isOpen} openHandler={() => setIsOpen(false)} />
         {children}
-        <Footer />
+        {!hideFooter && <Footer />}
       </div>
     </div>
   );

@@ -149,7 +149,7 @@ const options = {
     jwt: async (token: IToken, user: IUser, account: IAccount) => {
       const isSignIn = !!user;
 
-      if (isSignIn && account.type !== "credentials") {
+      if (isSignIn && account.type !== "credentials" && account.type !== "email") {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account.accessToken}`
         );
