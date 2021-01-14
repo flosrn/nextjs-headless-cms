@@ -13,7 +13,18 @@
     "username": {
       "type": "string",
       "minLength": 3,
-      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "minLength": 2,
+      "configurable": false,
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "minLength": 2,
       "configurable": false,
       "required": true
     },

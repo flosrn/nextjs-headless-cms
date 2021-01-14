@@ -528,6 +528,8 @@
               "required": [
                 "id",
                 "username",
+                "firstName",
+                "lastName",
                 "email"
               ],
               "properties": {
@@ -535,6 +537,12 @@
                   "type": "string"
                 },
                 "username": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
                   "type": "string"
                 },
                 "email": {

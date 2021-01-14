@@ -54,12 +54,12 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
         </div>
 
         <div className="container mx-auto px-4 h-full z-50">
-          <div className="flex flex-col content-center items-center justify-center h-full pt-4">
+          <div className="flex flex-col content-center items-center justify-center h-full pt-10 md:pt-0">
             <AnimateSharedLayout>
               <motion.div
                 layout
-                // initial={{ opacity: 0, y: 20, scale: 0 }}
-                // animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.9, delay: 0.3 } }}
+                initial={{ opacity: 0, scale: 0.75 }}
+                animate={{ opacity: 1, scale: 1, transition: { duration: 0.9, delay: 0.3 } }}
                 className="w-full lg:w-4/12 px-4"
               >
                 <AnimatePresence>

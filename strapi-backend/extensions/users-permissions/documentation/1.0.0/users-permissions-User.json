@@ -1188,6 +1188,8 @@
         "required": [
           "id",
           "username",
+          "firstName",
+          "lastName",
           "email"
         ],
         "properties": {
@@ -1197,6 +1199,14 @@
           "username": {
             "type": "string",
             "minLength": 3
+          },
+          "firstName": {
+            "type": "string",
+            "minLength": 2
+          },
+          "lastName": {
+            "type": "string",
+            "minLength": 2
           },
           "email": {
             "type": "string",
@@ -1256,12 +1266,22 @@
       "NewUsersPermissionsUser": {
         "required": [
           "username",
+          "firstName",
+          "lastName",
           "email"
         ],
         "properties": {
           "username": {
             "type": "string",
             "minLength": 3
+          },
+          "firstName": {
+            "type": "string",
+            "minLength": 2
+          },
+          "lastName": {
+            "type": "string",
+            "minLength": 2
           },
           "email": {
             "type": "string",
