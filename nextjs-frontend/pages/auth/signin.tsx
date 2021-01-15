@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { providers, csrfToken, signIn } from "next-auth/client";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
-
 import { useForm } from "react-hook-form";
 import { I18nProps } from "next-rosetta";
 import { MyLocale } from "i18n/index";
@@ -24,10 +23,11 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
   const [isAlertOpen, setAlertOpen] = useState<boolean>(false);
   const [errorCode, setErrorCode] = useState<string | string[]>(null);
   const [errorMessage, setErrorMessage] = useState<string | string[]>(null);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     setFormType(query.form);
-    setErrorCode(query.errorCode);
+    setErrorCode(query.errorCode || query.error);
     setErrorMessage(query.errorMessage);
   }, [query]);
 
@@ -38,12 +38,13 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
   }, [errorCode]);
 
   const onSubmit = (data) => {
+    setLoading(true);
     return signIn("credentials", { ...data, formType });
   };
 
   return (
     <LayoutPage hideFooter>
-      <section className="relative w-screen h-screen mb-16 md:mb-0">
+      <section className="relative w-screen h-screen mb-36">
         <div className="absolute w-full top-0 left-0 right-0 bottom-0 flex justify-center  m-0 -z-10">
           <Image
             src="/images/register_bg_2.png"
@@ -54,7 +55,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
         </div>
 
         <div className="container mx-auto px-4 h-full z-50">
-          <div className="flex flex-col content-center items-center justify-center h-full pt-10 md:pt-0">
+          <div className="flex flex-col content-center items-center h-full pt-10 pb-30">
             <AnimateSharedLayout>
               <motion.div
                 layout
@@ -117,12 +118,13 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                             {formType === "signin" && "sign in"} with email
                           </small>
                         </motion.div>
+
                         <form onSubmit={handleSubmit(onSubmit)}>
                           <input name="csrfToken" type="hidden" defaultValue={token} />
                           <motion.div layout className="relative w-full mb-5">
                             <label
-                              className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                              htmlFor="grid-password"
+                              htmlFor="email"
+                              className="block text-sm font-medium text-gray-700"
                             >
                               Email
                             </label>
@@ -130,7 +132,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                               id="email"
                               type="email"
                               name="email"
-                              className="px-3 py-3 mb-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                               placeholder="Email"
                               ref={register({ required: true })}
                             />
@@ -155,8 +157,8 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                               >
                                 <div className="relative w-full mb-5">
                                   <label
-                                    className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                    htmlFor="grid-password"
+                                    htmlFor="firstName"
+                                    className="block text-sm font-medium text-gray-700"
                                   >
                                     First Name
                                   </label>
@@ -164,7 +166,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                     id="firstName"
                                     type="text"
                                     name="firstName"
-                                    className="px-3 py-3 mb-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                     placeholder="First Name"
                                     ref={register({
                                       required: formType === "signup",
@@ -178,8 +180,8 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                 </div>
                                 <div className="relative w-full mb-5">
                                   <label
-                                    className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                    htmlFor="grid-password"
+                                    htmlFor="lastName"
+                                    className="block text-sm font-medium text-gray-700"
                                   >
                                     Last Name
                                   </label>
@@ -187,7 +189,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                     id="lastName"
                                     type="text"
                                     name="lastName"
-                                    className="px-3 py-3 mb-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                     placeholder="lastName"
                                     ref={register({ required: formType === "signup" })}
                                   />
@@ -203,8 +205,8 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                           <motion.div layout className="relative w-full mb-5">
                             <motion.label
                               layout
-                              className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                              htmlFor="grid-password"
+                              htmlFor="password"
+                              className="block text-sm font-medium text-gray-700"
                             >
                               Password
                             </motion.label>
@@ -213,7 +215,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                               type="password"
                               id="password"
                               name="password"
-                              className="px-3 py-3 mb-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                               placeholder="Password"
                               aria-invalid={errors.password ? "true" : "false"}
                               ref={register({ required: true })}
@@ -246,8 +248,8 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                               >
                                 <motion.label
                                   layout
-                                  className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                  htmlFor="grid-password"
+                                  htmlFor="passwordRepeat"
+                                  className="block text-sm font-medium text-gray-700"
                                 >
                                   Password repeat
                                 </motion.label>
@@ -256,7 +258,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                   type="password"
                                   id="passwordRepeat"
                                   name="passwordRepeat"
-                                  className="px-3 py-3 mb-1 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                   placeholder="Password"
                                   aria-invalid={errors.passwordRepeat ? "true" : "false"}
                                   ref={register({
@@ -297,7 +299,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                               <input
                                 id="customCheckLogin"
                                 type="checkbox"
-                                className="form-checkbox text-gray-800 ml-1 w-5 h-5"
+                                className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                               />
                               <span className="ml-2 text-sm font-semibold text-gray-700">
                                 Remember me
@@ -309,10 +311,32 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                             <motion.button
                               whileHover={{ y: -2, scale: 1.02 }}
                               whileTap={{ scale: 0.9 }}
-                              className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+                              className="flex justify-center items-center bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
                               type="submit"
                             >
                               {formType === "signup" ? "Sign Up" : "Sign in"}
+                              {isLoading && (
+                                <svg
+                                  className="animate-spin -mr-1 ml-3 h-5 w-5 text-white"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <circle
+                                    className="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    strokeWidth="4"
+                                  />
+                                  <path
+                                    className="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                  />
+                                </svg>
+                              )}
                             </motion.button>
                           </motion.div>
                         </form>

@@ -10,6 +10,7 @@ interface Props {
 }
 
 const MenuButton: React.FC<Props> = ({ image, headMenu, items, footerMenu }) => {
+  console.log("image : ", image);
   return (
     <div className="flex items-center justify-center pl-8">
       <div className="relative inline-block text-left">
