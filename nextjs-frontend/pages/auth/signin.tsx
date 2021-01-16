@@ -216,7 +216,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                               id="password"
                               name="password"
                               className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                              placeholder="Password"
+                              placeholder="Choose a strog password"
                               aria-invalid={errors.password ? "true" : "false"}
                               ref={register({ required: true })}
                             />
@@ -259,7 +259,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                   id="passwordRepeat"
                                   name="passwordRepeat"
                                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                  placeholder="Password"
+                                  placeholder="Conform your chosen password"
                                   aria-invalid={errors.passwordRepeat ? "true" : "false"}
                                   ref={register({
                                     required: true,
@@ -311,6 +311,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                             <motion.button
                               whileHover={{ y: -2, scale: 1.02 }}
                               whileTap={{ scale: 0.9 }}
+                              disabled={isLoading}
                               className="flex justify-center items-center bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
                               type="submit"
                             >
@@ -338,6 +339,22 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                 </svg>
                               )}
                             </motion.button>
+                          </motion.div>
+
+                          <motion.div className="flex justify-center items-center mt-3 -mb-5 text-indigo-500 underline">
+                            {formType === "signup" ? (
+                              <Link href="/auth/signin?form=signin">
+                                <a onClick={() => setFormType("signin")}>
+                                  <small>Already an account ?</small>
+                                </a>
+                              </Link>
+                            ) : (
+                              <Link href="/auth/signin?form=signup">
+                                <a onClick={() => setFormType("signin")}>
+                                  <small>Create an account</small>
+                                </a>
+                              </Link>
+                            )}
                           </motion.div>
                         </form>
                       </div>
@@ -404,21 +421,6 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                     <a href="#pablo" className="text-gray-300">
                       <small>Forgot password?</small>
                     </a>
-                  </div>
-                  <div className="w-1/2 text-right">
-                    {formType === "signup" ? (
-                      <Link href="/auth/signin?form=signin">
-                        <a className="text-gray-300" onClick={() => setFormType("signin")}>
-                          <small>Log in</small>
-                        </a>
-                      </Link>
-                    ) : (
-                      <Link href="/auth/signin?form=signup">
-                        <a className="text-gray-300" onClick={() => setFormType("signup")}>
-                          <small>Create new account</small>
-                        </a>
-                      </Link>
-                    )}
                   </div>
                 </motion.div>
               </motion.div>

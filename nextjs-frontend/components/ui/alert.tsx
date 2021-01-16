@@ -8,6 +8,9 @@ interface Props {
   closeHandler?: () => void;
 }
 
+// OAuthAccountNotLinked -
+// Auth.form.error.email.taken - email already taken
+
 const Alert: React.FC<Props> = ({ type, title, content, closeHandler }) => {
   const [color, setColor] = useState(null);
   const [icon, setIcon] = useState(null);
