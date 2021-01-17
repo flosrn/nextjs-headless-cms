@@ -95,9 +95,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                   whileHover={{ y: -2, scale: 1.02 }}
                                   whileTap={{ scale: 0.9 }}
                                   key={provider.id}
-                                  onClick={() =>
-                                    signIn(provider.id, { email: "florian.seran@gmail.com" })
-                                  }
+                                  onClick={() => signIn(provider.id)}
                                   className="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs"
                                   type="button"
                                   style={{ transition: "all .15s ease" }}
@@ -259,7 +257,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                   id="passwordRepeat"
                                   name="passwordRepeat"
                                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                  placeholder="Conform your chosen password"
+                                  placeholder="Confirm your chosen password"
                                   aria-invalid={errors.passwordRepeat ? "true" : "false"}
                                   ref={register({
                                     required: true,
