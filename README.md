@@ -14,7 +14,7 @@
 - ✨ Cool animations with [GSAP](https://greensock.com/gsap/)
 - 👨‍💻 Ready to code (Typescript - eslint - prettier)
 - 🤖 Robot.txt generator for Google bot crawler
-- 💯 [Good Google lighthouse score](https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https%3A%2F%2Fnextjs-headless-cms-starter-kit.flosrn.vercel.app)
+- 💯 [Good Google lighthouse score](https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https://nextjs-headless-cms.tech/)
 - 📱 Progressive Web App (PWA)
 - 📴 Offline support
 
@@ -24,7 +24,7 @@
 - SEO metadata and Open Graph tags improvments
 - UI improvments
 - Animations improvments
-- Bundles sizes analyzer
+- Improve bundle size for better lighthouse score
 - E-commerce features with products page, filtering, serching with GraphQL queries
 - Many more improvments in coming... stay tuned !
 
