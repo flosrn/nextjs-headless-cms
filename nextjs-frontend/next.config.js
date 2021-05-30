@@ -4,6 +4,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   // withPWA({
+  future: {
+    webpack5: true,
+  },
   i18n: {
     locales: ["en", "fr"],
     defaultLocale: "en",

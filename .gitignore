@@ -90,3 +90,5 @@ public/uploads/*
 
 testApp
 coverage
+
+.vercel
