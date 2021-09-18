@@ -44,6 +44,7 @@ export const getStaticProps: GetStaticProps<I18nProps<MyLocale>> = async ({
   const { table = {} } = await import(`i18n/${locale || defaultLocale}`);
   try {
     const allBlogs = (await getAllBlogsForHome(preview)) || [];
+    console.log("allBlogs: ", allBlogs);
     return { props: { table, allBlogs, preview } };
   } catch (error) {
     return { props: { table, allBlogs: null, preview } };

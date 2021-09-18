@@ -21,8 +21,6 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript",
     "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint",
   ],
   rules: {
     "react/react-in-jsx-scope": "off", // suppress errors for missing 'import React' in files
@@ -40,6 +38,9 @@ module.exports = {
     "jsx-a11y/accessible-emoji": "off",
     "no-use-before-define": "off",
     "prefer-promise-reject-errors": "off",
+    "global-require": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "import/no-extraneous-dependencies": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/explicit-function-return-type": [

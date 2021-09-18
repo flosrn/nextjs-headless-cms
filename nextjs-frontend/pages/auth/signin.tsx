@@ -18,7 +18,12 @@ interface Props {
 
 const SignInPage: React.FC<Props> = ({ providersList, token }) => {
   const { query } = useRouter();
-  const { register, handleSubmit, watch, errors } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   const [formType, setFormType] = useState<string | string[]>(query.form);
   const [isAlertOpen, setAlertOpen] = useState<boolean>(false);
   const [errorCode, setErrorCode] = useState<string | string[]>(null);
@@ -132,7 +137,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                               name="email"
                               className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                               placeholder="Email"
-                              ref={register({ required: true })}
+                              {...register("email", { required: true })}
                             />
                             {errors.email && (
                               <span className="text-sm text-red-500 pl-2">
@@ -166,7 +171,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                     name="firstName"
                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                     placeholder="First Name"
-                                    ref={register({
+                                    {...register("firstName", {
                                       required: formType === "signup",
                                     })}
                                   />
@@ -189,7 +194,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                     name="lastName"
                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                     placeholder="lastName"
-                                    ref={register({ required: formType === "signup" })}
+                                    {...register("lastName", { required: formType === "signup" })}
                                   />
                                   {errors.lastName && (
                                     <span className="text-sm text-red-500 pl-2">
@@ -216,7 +221,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                               className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                               placeholder="Choose a strog password"
                               aria-invalid={errors.password ? "true" : "false"}
-                              ref={register({ required: true })}
+                              {...register("password", { required: true })}
                             />
                             <AnimatePresence>
                               {errors.password && (
@@ -259,7 +264,7 @@ const SignInPage: React.FC<Props> = ({ providersList, token }) => {
                                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                   placeholder="Confirm your chosen password"
                                   aria-invalid={errors.passwordRepeat ? "true" : "false"}
-                                  ref={register({
+                                  {...register("passwordRepeat", {
                                     required: true,
                                     validate: (value) => value === watch("password"),
                                   })}
