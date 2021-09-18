@@ -1,12 +1,12 @@
 module.exports = {
   env: {
     browser: true,
+    es2021: true,
     node: true,
-    es2020: true,
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 12,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true,
@@ -15,19 +15,25 @@ module.exports = {
   plugins: ["@typescript-eslint", "react", "prettier"],
   extends: [
     "airbnb",
-    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
+    "plugin:import/recommended",
     "plugin:import/typescript",
     "prettier",
   ],
   rules: {
-    "react/react-in-jsx-scope": "off", // suppress errors for missing 'import React' in files
     "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx", ".js", ".jsx"] }], // allow jsx syntax in js files (for next.js project),
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
     "react/require-default-props": "off",
     "import/prefer-default-export": "off",
-    "import/extensions": "off",
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": ["error", { custom: "ignore" }],
     "prettier/prettier": ["error", {}, { usePrettierrc: true }], // Includes .prettierrc.js rule
