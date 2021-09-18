@@ -29,7 +29,7 @@
     "framer-motion": "^4.1.17",
     "gsap": "^3.6.1",
     "mongodb": "^3.6.9",
-    "next": "^10.2.3",
+    "next": "^11.1.2",
     "next-auth": "^3.24.0",
     "next-pwa": "^5.2.21",
     "next-rosetta": "^1.2.7",
@@ -57,9 +57,9 @@
     "eslint-plugin-react": "^7.25.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "next-sitemap": "^1.6.95",
-    "postcss": "^8.3.0",
+    "postcss": "^8.3.6",
     "prettier": "^2.4.1",
-    "tailwindcss": "^2.1.2",
+    "tailwindcss": "^2.2.15",
     "typescript": "^4.4.3"
   }
 }
