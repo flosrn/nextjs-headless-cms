@@ -13,13 +13,14 @@ interface Props {
 }
 
 const BlogPage: React.FC<Props> = ({ allBlogs }) => {
+  console.log("allBlogs : ", allBlogs);
   return (
     <LayoutPage>
       <section className="mt-3 mb-56 md:mt-5 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-row flex-wrap mx-auto">
           {allBlogs ? (
             allBlogs.map((blog) => (
-              <Link href="/blog/[...slug]" as={`/blog/${blog.slug}`} key={blog.slug}>
+              <Link href={`/blog/${blog.slug}`} key={blog.slug}>
                 <a className="flex relative w-full md:w-1/2 lg:w-1/3 px-4 py-6">
                   <Blog {...blog} />
                 </a>

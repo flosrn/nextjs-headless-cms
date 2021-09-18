@@ -4,7 +4,7 @@ import { dashboardURL } from "utils/constants";
 import { IBlog } from "interfaces/blog";
 
 interface Props extends IBlog {
-  loadHandler?: () => void;
+  // loadHandler?: () => void;
 }
 
 const Blog: React.FC<Props> = ({ title, excerpt, author, coverImage }) => {
@@ -12,14 +12,14 @@ const Blog: React.FC<Props> = ({ title, excerpt, author, coverImage }) => {
   return (
     <div className="flex flex-col relative w-full rounded-2xl shadow-md bg-white">
       <div className={`${isLoaded ? "visible" : "invisible"}`}>
-        {/* <Image
+        <Image
           src={`${dashboardURL}${coverImage?.formats?.small.url}`}
           width={coverImage?.formats?.small.width}
           height={coverImage?.formats?.small.height}
           alt={coverImage?.caption}
           onLoad={() => setLoaded(true)}
           className="object-cover rounded-2xl rounded-b-none h-48 w-full"
-        /> */}
+        />
         <div className="flex flex-col justify-between h-auto">
           <div className="p-6">
             <div className="text-indigo-600 text-md">Blog</div>
@@ -28,13 +28,13 @@ const Blog: React.FC<Props> = ({ title, excerpt, author, coverImage }) => {
           </div>
           <div className="p-6 flex bottom-8">
             <div className="flex flex-col w-11 h-11">
-              {/* <Image
+              <Image
                 src={`${dashboardURL}${author?.picture?.formats.thumbnail.url}`}
                 width={50}
                 height={50}
                 alt={author?.picture?.caption}
                 className="object-cover w-full h-full rounded-full"
-              /> */}
+              />
             </div>
             <div className="ml-4">
               <div className="">{author?.name}</div>

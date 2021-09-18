@@ -36,9 +36,9 @@ const options = {
           const errorMessage = error.response?.data.message[0].messages[0].message;
           console.log("errorCode : ", errorCode);
           console.log("errorMessage : ", errorMessage);
-          return Promise.reject(
-            `/auth/signin?form=${credentials.formType}&errorCode=${errorCode}&errorMessage=${errorMessage}`
-          );
+          // return Promise.reject(
+          //   `/auth/signin?form=${credentials.formType}&errorCode=${errorCode}&errorMessage=${errorMessage}`
+          // );
         }
       },
     }),
@@ -177,4 +177,5 @@ const options = {
   debug: true,
 };
 
+// @ts-ignore
 export default (req, res) => NextAuth(req, res, options);

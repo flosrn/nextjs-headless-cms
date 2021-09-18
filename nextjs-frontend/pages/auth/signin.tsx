@@ -442,7 +442,7 @@ export const getServerSideProps: GetServerSideProps<I18nProps<MyLocale>> = async
     props: {
       table,
       token: await csrfToken(context),
-      providersList: await providers(context),
+      providersList: await providers(),
     },
   };
 };

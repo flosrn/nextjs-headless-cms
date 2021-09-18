@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://nextjs-headless-cms.tech</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/account/profile</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/account/user-info</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/animations</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/auth/signin</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/design</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/en/blog/what-is-strapi</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/en/blog/what-is-strapi-2</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
-<url><loc>https://nextjs-headless-cms.tech/en/blog/what-is-strapi-3</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-01-13T11:00:43.737Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.178Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/account/profile</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/account/user-info</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/animations</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/auth/signin</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/design</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/fr/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en/design</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/fr/design</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en/fallback</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/fr/fallback</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en/404</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/fr/404</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/fr</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en/animations</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/fr/animations</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en/blog/what-is-strapi</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en/blog/what-is-strapi-2</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
+<url><loc>https://nextjs-headless-cms.tech/en/blog/what-is-strapi-3</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-09-18T21:59:11.179Z</lastmod></url>
 </urlset>

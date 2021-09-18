@@ -4,6 +4,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   // withPWA({
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   i18n: {
     locales: ["en", "fr"],
     defaultLocale: "en",
@@ -17,5 +20,5 @@ module.exports = withBundleAnalyzer({
   //   dest: "public",
   //   swSrc: "service-worker.js",
   // },
-  // })
+  // }),
 });
