@@ -6,6 +6,9 @@ import LayoutPage from "components/ui/layout-page";
 import { I18nProps } from "next-rosetta";
 import { MyLocale } from "i18n/index";
 import Blog from "components/ui/blog";
+import { GET_BLOGS } from "src/apollo/queries";
+// import { gql } from "@apollo/client";
+import client from "../../apollo/apollo-client";
 
 interface Props {
   preview: boolean;
@@ -43,9 +46,8 @@ export const getStaticProps: GetStaticProps<I18nProps<MyLocale>> = async ({
 }) => {
   const { table = {} } = await import(`i18n/${locale || defaultLocale}`);
   try {
-    const allBlogs = (await getAllBlogsForHome(preview)) || [];
-    console.log("allBlogs: ", allBlogs);
-    return { props: { table, allBlogs, preview } };
+    const { data } = await client.query({ query: GET_BLOGS });
+    return { props: { table, allBlogs: data.blogs, preview } };
   } catch (error) {
     return { props: { table, allBlogs: null, preview } };
   }
