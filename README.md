@@ -4,7 +4,7 @@
 
 **Features**
 
-- 🚀 Powered by [Next.js](https://nextjs.org/) v10.0.3
+- 🚀 Powered by [Next.js](https://nextjs.org/) v11
 - 🍃 Beautifull and lightweight design with [Tailwindcss v2](https://tailwindcss.com)
 - 🔐 Securized authentication/register handled by [NextAuth.js](https://next-auth.js.org/)
 - 🌐 Internationalization support (fr/en)
