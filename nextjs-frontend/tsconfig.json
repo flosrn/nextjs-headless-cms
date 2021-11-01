@@ -6,7 +6,10 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -19,18 +22,44 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
-      "*": ["./*"],
-      "components/*": ["./src/components/*"],
-      "lib/*": ["./src/lib/*"],
-      "interfaces/*": ["./src/interfaces/*"],
-      "hooks/*": ["./src/hooks/*"],
-      "services/*": ["./services/*"],
-      "context/*": ["./src/context/*"],
-      "public/*": ["./public/*"],
-      "utils/*": ["./src/utils/*"],
-      "i18n/*": ["./i18n/*"],
-    }
+      "*": [
+        "./*"
+      ],
+      "components/*": [
+        "./src/components/*"
+      ],
+      "lib/*": [
+        "./src/lib/*"
+      ],
+      "interfaces/*": [
+        "./src/interfaces/*"
+      ],
+      "hooks/*": [
+        "./src/hooks/*"
+      ],
+      "services/*": [
+        "./services/*"
+      ],
+      "context/*": [
+        "./src/context/*"
+      ],
+      "public/*": [
+        "./public/*"
+      ],
+      "utils/*": [
+        "./src/utils/*"
+      ],
+      "i18n/*": [
+        "./i18n/*"
+      ]
+    },
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
