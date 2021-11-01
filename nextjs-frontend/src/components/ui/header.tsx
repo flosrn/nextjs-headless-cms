@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { signOut, useSession } from "next-auth/client";
+import { useSession, signOut } from "next-auth/react";
 import Links from "components/ui/links";
 import Logo from "components/ui/logo";
 import Locales from "components/ui/locales";
@@ -13,8 +13,10 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ openHandler }) => {
-  const [session] = useSession();
+  const { data: session, status } = useSession();
   console.log("session : ", session);
+  console.log("status : ", status);
+
   const { query } = useRouter();
   return (
     <div className="fixed z-50 bg-white dark:bg-gray-900 w-full border-b border-gray-600 top-0 py-3 md:py-5 px-5 sm:px-6 lg:px-8">

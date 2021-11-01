@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import { providers, csrfToken, signIn } from "next-auth/client";
+import { getProviders, getCsrfToken, signIn } from "next-auth/react";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { I18nProps } from "next-rosetta";
@@ -441,8 +441,8 @@ export const getServerSideProps: GetServerSideProps<I18nProps<MyLocale>> = async
   return {
     props: {
       table,
-      token: await csrfToken(context),
-      providersList: await providers(),
+      token: await getCsrfToken(context),
+      providersList: await getProviders(),
     },
   };
 };

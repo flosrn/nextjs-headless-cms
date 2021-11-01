@@ -1,21 +1,25 @@
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
 import axios from "axios";
+import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
+import GithubProvider from "next-auth/providers/github";
+import CredentialsProvider from "next-auth/providers/credentials";
+
 import { getProfilePic } from "src/utils/functions";
-import IToken from "src/interfaces/token";
-import IUser from "src/interfaces/user";
-import IAccount from "src/interfaces/account";
-import ISession from "src/interfaces/session";
 import { authHandler } from "src/lib/api/authApi";
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
-const options = {
+export default NextAuth({
   // https://next-auth.js.org/configuration/providers
   providers: [
-    Providers.Credentials({
+    CredentialsProvider({
       name: "Credentials",
-      authorize: async (credentials) => {
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials, req) {
         try {
           const response = await authHandler(credentials);
           console.log("response.data : ", response.data);
@@ -36,9 +40,9 @@ const options = {
           const errorMessage = error.response?.data.message[0].messages[0].message;
           console.log("errorCode : ", errorCode);
           console.log("errorMessage : ", errorMessage);
-          // return Promise.reject(
-          //   `/auth/signin?form=${credentials.formType}&errorCode=${errorCode}&errorMessage=${errorMessage}`
-          // );
+          return Promise.reject(
+            `/auth/signin?form=${credentials.formType}&errorCode=${errorCode}&errorMessage=${errorMessage}`
+          );
         }
       },
     }),
@@ -60,19 +64,25 @@ const options = {
     //   clientSecret: process.env.AUTH0_SECRET,
     //   domain: process.env.AUTH0_DOMAIN,
     // }),
-    Providers.Google({
+    GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      // async profile(profileData) {
-      //   console.log("profileData : ", profileData);
-      //   return Promise.resolve(profileData);
-      // },
+      // authorizationUrl:
+      //   "https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code",
+      async profile(profileData) {
+        console.log("profileData : ", profileData);
+        // return Promise.resolve(profileData);
+        return {
+          ...profileData,
+          id: profileData.sub,
+        };
+      },
     }),
-    Providers.Facebook({
+    FacebookProvider({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
     }),
-    Providers.GitHub({
+    GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
@@ -130,7 +140,7 @@ const options = {
   pages: {
     signIn: "/auth/signin?form=signup", // Displays signin buttons
     // signOut: '/api/auth/signout', // Displays form with sign out button
-    // error: "/auth/signin?error=", // Error code passed in query string as ?error=
+    error: "/auth/signin?error=", // Error code passed in query string as ?error=
     verifyRequest: "/auth/signin?form=verify-request", // Used for check email page
     // newUser: null // If set, new users will be directed here on first sign in
   },
@@ -139,24 +149,46 @@ const options = {
   // when an action is performed.
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
-    // signIn: async (user, account, profile) => {
-    //   return Promise.resolve(true);
-    // },
-    redirect: async (_url: string, baseUrl: string) => {
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log("useraaaaaaaaa : ", user);
+      console.log("accountaaaaaaaaaaaa: ", account);
+      console.log("profileaaaaaaaaaaaa: ", profile);
+      console.log("email : ", email);
+      console.log("credentials : ", credentials);
+      if (account.provider === "google" && profile.email_verified === true) {
+        return true;
+      }
+      return false;
+    },
+    async redirect({ url, baseUrl }) {
       return Promise.resolve(baseUrl);
     },
-    session: async (session: ISession, user: IUser) => {
+    async session({ session, token, user }) {
       session.jwt = user?.jwt;
       session.id = user?.id;
       return Promise.resolve(session);
     },
-    jwt: async (token: IToken, user: IUser, account: IAccount) => {
+    async jwt({ token, user, account, profile, isNewUser }) {
+      console.log("isNewUser wwww : ", isNewUser);
+      console.log("profile wwwwww : ", profile);
+      console.log("account wwwww: ", account);
+      console.log("user wwwww: ", user);
+      console.log("token wwwwww: ", token);
       const isSignIn = !!user;
+      console.log("isSignIn : ", isSignIn);
+      if (account) {
+        token.accessToken = account.access_token;
+      }
 
       if (isSignIn && account.type !== "credentials" && account.type !== "email") {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account.accessToken}`
+        console.log(
+          "`${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account.access_token}` : ",
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account.access_token}`
         );
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account.access_token}`
+        );
+        console.log("response: ", response);
         token.jwt = response.data.jwt;
         token.id = response.data.user.id;
       }
@@ -175,7 +207,4 @@ const options = {
 
   // Enable debug messages in the console if you are having problems
   debug: true,
-};
-
-// @ts-ignore
-export default (req, res) => NextAuth(req, res, options);
+});

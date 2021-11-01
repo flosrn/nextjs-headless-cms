@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "next-rosetta";
 import { MyLocale } from "i18n/index";
 import { isLinkActive } from "src/utils/constants";
-import { signOut } from "next-auth/client";
+import { signOut } from "next-auth/react";
 
 interface Props {
   isOpen?: boolean;
